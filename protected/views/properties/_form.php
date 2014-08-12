@@ -18,6 +18,14 @@
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
+    
+    <?php if(Yii::app()->user->isAdmin()){?>
+    <div class="row">
+		<?php echo $form->labelEx($model,'user_id'); ?>
+		<?php echo $form->dropDownList($model,'user_id', $users, array('empty'=>'-- Choose --')); ?>
+		<?php echo $form->error($model,'user_id'); ?>
+	</div>
+    <?php } ?>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'property_type_id'); ?>

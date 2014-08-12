@@ -20,4 +20,5 @@ $this->menu=array(
     'propertyTypes'=>$propertyTypes,
     'propertyStatuses'=>$propertyStatuses,
     'states'=>$states,
+    'users'=>$users,
 )); ?>

@@ -71,7 +71,8 @@ class PropertiesController extends Controller
 		if(isset($_POST['Properties']))
 		{
 			$model->attributes=$_POST['Properties'];
-            $model->user_id=$user_id;
+            if(!Yii::app()->user->isAdmin())
+                $model->user_id=$user_id;
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -80,12 +81,14 @@ class PropertiesController extends Controller
 		$propertyTypes=CHtml::listData(PropertyTypes::model()->findAll(), 'id', 'name');
         $propertyStatuses=CHtml::listData(PropertyStatuses::model()->findAll(), 'id', 'name');
         $states=CHtml::listData(States::model()->findAll(), 'id', 'name');
+        $users=CHtml::listData(User::model()->findAll(), 'id', 'username');
 
 		$this->render('create',array(
 			'model'=>$model,
             'propertyTypes'=>$propertyTypes,
             'propertyStatuses'=>$propertyStatuses,
             'states'=>$states,
+            'users'=>$users,
 		));
 	}
 
@@ -132,12 +135,17 @@ class PropertiesController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Properties', array(
-            'criteria'=>array(
-                'condition'=>'user_id=:user_id',
-                'params'=>array(':user_id'=>Yii::app()->user->id),
-            ),
-        ));
+        if(Yii::app()->user->isAdmin()){
+            $dataProvider=new CActiveDataProvider('Properties');
+        }
+        else{
+            $dataProvider=new CActiveDataProvider('Properties', array(
+                'criteria'=>array(
+                    'condition'=>'user_id=:user_id',
+                    'params'=>array(':user_id'=>Yii::app()->user->id),
+                ),
+            ));
+        }
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

@@ -13,7 +13,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>Property Details</h1>
+<h1>View Properties #<?php echo $property->id;?></h1>
 <?php echo $this->renderPartial('_propertyDetails', array('model'=>$property));?>
 <div style="margin-bottom:30px"></div>
 <h1>Bills</h1>
