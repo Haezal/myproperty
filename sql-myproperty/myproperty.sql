@@ -51,11 +51,11 @@ CREATE TABLE `bills` (
   KEY `fk_bill_type_id` (`bill_type_id`),
   CONSTRAINT `fk_bill_property_type_id` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_bill_type_id` FOREIGN KEY (`bill_type_id`) REFERENCES `bill_types` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 /*Data for the table `bills` */
 
-insert  into `bills`(`id`,`property_id`,`bill_type_id`,`account_no`,`old_account_no`,`collateral`,`is_active`,`created`,`created_by`,`modified`,`modified_by`) values (1,4,1,'01810010175702',NULL,'300.00',1,NULL,'sistem',NULL,'sistem'),(2,4,2,'4000209866011',NULL,'100.00',1,NULL,'sistem',NULL,'sistem'),(3,4,5,'56131428',NULL,'0.00',1,NULL,'sistem',NULL,'sistem'),(4,4,3,'0901888140',NULL,'0.00',1,NULL,'sistem',NULL,'sistem'),(5,4,4,'197884','41T0300A035-0197884','0.00',1,NULL,'sistem',NULL,'sistem');
+insert  into `bills`(`id`,`property_id`,`bill_type_id`,`account_no`,`old_account_no`,`collateral`,`is_active`,`created`,`created_by`,`modified`,`modified_by`) values (1,5,1,'01810010175702',NULL,'300.00',1,NULL,'sistem',NULL,'sistem'),(2,5,2,'4000209866011',NULL,'100.00',1,NULL,'sistem',NULL,'sistem'),(3,5,5,'56131428',NULL,'0.00',1,NULL,'sistem',NULL,'sistem'),(4,5,3,'0901888140',NULL,'0.00',1,NULL,'sistem',NULL,'sistem'),(5,5,4,'197884','41T0300A035-0197884','0.00',1,NULL,'sistem',NULL,'sistem');
 
 /*Table structure for table `months` */
 
@@ -162,7 +162,7 @@ CREATE TABLE `properties` (
 
 /*Data for the table `properties` */
 
-insert  into `properties`(`id`,`user_id`,`property_type_id`,`property_status_id`,`address`,`address_more`,`postcode`,`city`,`state_id`,`is_active`,`created_by`,`created`,`modified_by`,`modified`) values (4,1,2,1,'Block D-10-12A, Apartment Taman Medan Jaya','No 2A, Jalan PJS 2/1','46000','Petaling Jaya',12,1,'sistem',NULL,'sistem',NULL),(5,1,4,2,'No 6, Jalan Bukit Emas 2b','Taman Bukit Emas','43300','Seri Kembangan',12,1,'sistem',NULL,'sistem',NULL);
+insert  into `properties`(`id`,`user_id`,`property_type_id`,`property_status_id`,`address`,`address_more`,`postcode`,`city`,`state_id`,`is_active`,`created_by`,`created`,`modified_by`,`modified`) values (4,2,2,1,'Block D-10-12A, Apartment Taman Medan Jaya','No 2A, Jalan PJS 2/1','46000','Petaling Jaya',12,1,'sistem',NULL,'sistem',NULL),(5,2,4,2,'No 6, Jalan Bukit Emas 2b','Taman Bukit Emas','43300','Seri Kembangan',12,1,'sistem',NULL,'sistem',NULL);
 
 /*Table structure for table `property_statuses` */
 
@@ -271,11 +271,11 @@ CREATE TABLE `tbl_profiles` (
   `last_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`user_id`),
   CONSTRAINT `user_profile_id` FOREIGN KEY (`user_id`) REFERENCES `tbl_users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_profiles` */
 
-insert  into `tbl_profiles`(`user_id`,`first_name`,`last_name`) values (1,'Administrator','Admin');
+insert  into `tbl_profiles`(`user_id`,`first_name`,`last_name`) values (1,'Administrator','Admin'),(2,'Haezal','Musa');
 
 /*Table structure for table `tbl_profiles_fields` */
 
@@ -322,11 +322,11 @@ CREATE TABLE `tbl_users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_username` (`username`),
   UNIQUE KEY `user_email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_users` */
 
-insert  into `tbl_users`(`id`,`username`,`password`,`email`,`activkey`,`superuser`,`status`,`create_at`,`lastvisit_at`) values (1,'admin','5f4dcc3b5aa765d61d8327deb882cf99','ezalepy@gmail.com','eba93fa9930302c3d2b6b732cc31bfef',1,1,'2014-08-10 01:51:22','2014-08-09 21:04:40');
+insert  into `tbl_users`(`id`,`username`,`password`,`email`,`activkey`,`superuser`,`status`,`create_at`,`lastvisit_at`) values (1,'admin','5f4dcc3b5aa765d61d8327deb882cf99','admin@myproperty.com','27921dfba42c627fb39e858cdb31c1ff',1,1,'2014-08-10 01:51:22','2014-08-12 17:38:24'),(2,'haezal','5716f55419a25cef848511791a483b21','ezalepy@gmail.com','98751617ce1f2877a182a18ea19ad276',0,1,'2014-08-12 17:36:04','2014-08-12 17:36:56');
 
 /*Table structure for table `tenancy_statuses` */
 
