@@ -1,34 +1,39 @@
 <?php
 
 /**
- * This is the model class for table "bills".
+ * This is the model class for table "pay_bills".
  *
- * The followings are the available columns in table 'bills':
+ * The followings are the available columns in table 'pay_bills':
  * @property integer $id
- * @property integer $property_id
- * @property integer $bill_type_id
- * @property string $account_no
- * @property string $old_account_no
- * @property string $collateral
+ * @property integer $bill_id
+ * @property integer $month_id
+ * @property integer $year
+ * @property string $bill_date
+ * @property string $from_date
+ * @property string $end_date
+ * @property string $amount_due
+ * @property integer $is_pay
+ * @property integer $pay_list_id
+ * @property string $payment_date
  * @property integer $is_active
  * @property string $created
- * @property string $created_by
  * @property string $modified
+ * @property string $created_by
  * @property string $modified_by
  *
  * The followings are the available model relations:
- * @property Properties $property
- * @property BillTypes $billType
- * @property PayBills[] $payBills
+ * @property Bills $bill
+ * @property Months $month
+ * @property PayLists $payList
  */
-class Bills extends CActiveRecord
+class PayBills extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'bills';
+		return 'pay_bills';
 	}
 
 	/**
@@ -39,15 +44,13 @@ class Bills extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('property_id, bill_type_id, account_no', 'required'),
-			array('property_id, bill_type_id, is_active', 'numerical', 'integerOnly'=>true),
-			array('account_no, old_account_no', 'length', 'max'=>50),
-			array('collateral', 'length', 'max'=>11),
+			array('bill_id, month_id, year, is_pay, pay_list_id, is_active', 'numerical', 'integerOnly'=>true),
+			array('amount_due', 'length', 'max'=>11),
 			array('created_by, modified_by', 'length', 'max'=>20),
-			array('created, modified', 'safe'),
+			array('bill_date, from_date, end_date, payment_date, created, modified', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, property_id, bill_type_id, account_no, old_account_no, collateral, is_active, created, created_by, modified, modified_by', 'safe', 'on'=>'search'),
+			array('id, bill_id, month_id, year, bill_date, from_date, end_date, amount_due, is_pay, pay_list_id, payment_date, is_active, created, modified, created_by, modified_by', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,9 +62,9 @@ class Bills extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'property' => array(self::BELONGS_TO, 'Properties', 'property_id'),
-			'billType' => array(self::BELONGS_TO, 'BillTypes', 'bill_type_id'),
-			'payBills' => array(self::HAS_MANY, 'PayBills', 'bill_id'),
+			'bill' => array(self::BELONGS_TO, 'Bills', 'bill_id'),
+			'month' => array(self::BELONGS_TO, 'Months', 'month_id'),
+			'payList' => array(self::BELONGS_TO, 'PayLists', 'pay_list_id'),
 		);
 	}
 
@@ -72,15 +75,20 @@ class Bills extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'property_id' => 'Property',
-			'bill_type_id' => 'Bill Type',
-			'account_no' => 'Account No',
-			'old_account_no' => 'Old Account No',
-			'collateral' => 'Collateral',
+			'bill_id' => 'Bill',
+			'month_id' => 'Month',
+			'year' => 'Year',
+			'bill_date' => 'Bill Date',
+			'from_date' => 'From Date',
+			'end_date' => 'End Date',
+			'amount_due' => 'Amount Due',
+			'is_pay' => 'Is Pay',
+			'pay_list_id' => 'Pay List',
+			'payment_date' => 'Payment Date',
 			'is_active' => 'Is Active',
 			'created' => 'Created',
-			'created_by' => 'Created By',
 			'modified' => 'Modified',
+			'created_by' => 'Created By',
 			'modified_by' => 'Modified By',
 		);
 	}
@@ -104,15 +112,20 @@ class Bills extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('property_id',$this->property_id);
-		$criteria->compare('bill_type_id',$this->bill_type_id);
-		$criteria->compare('account_no',$this->account_no,true);
-		$criteria->compare('old_account_no',$this->old_account_no,true);
-		$criteria->compare('collateral',$this->collateral,true);
+		$criteria->compare('bill_id',$this->bill_id);
+		$criteria->compare('month_id',$this->month_id);
+		$criteria->compare('year',$this->year);
+		$criteria->compare('bill_date',$this->bill_date,true);
+		$criteria->compare('from_date',$this->from_date,true);
+		$criteria->compare('end_date',$this->end_date,true);
+		$criteria->compare('amount_due',$this->amount_due,true);
+		$criteria->compare('is_pay',$this->is_pay);
+		$criteria->compare('pay_list_id',$this->pay_list_id);
+		$criteria->compare('payment_date',$this->payment_date,true);
 		$criteria->compare('is_active',$this->is_active);
 		$criteria->compare('created',$this->created,true);
-		$criteria->compare('created_by',$this->created_by,true);
 		$criteria->compare('modified',$this->modified,true);
+		$criteria->compare('created_by',$this->created_by,true);
 		$criteria->compare('modified_by',$this->modified_by,true);
 
 		return new CActiveDataProvider($this, array(
@@ -124,7 +137,7 @@ class Bills extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Bills the static model class
+	 * @return PayBills the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
