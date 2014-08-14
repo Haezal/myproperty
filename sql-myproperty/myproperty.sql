@@ -51,11 +51,49 @@ CREATE TABLE `bills` (
   KEY `fk_bill_type_id` (`bill_type_id`),
   CONSTRAINT `fk_bill_property_type_id` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_bill_type_id` FOREIGN KEY (`bill_type_id`) REFERENCES `bill_types` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 /*Data for the table `bills` */
 
 insert  into `bills`(`id`,`property_id`,`bill_type_id`,`account_no`,`old_account_no`,`collateral`,`is_active`,`created`,`created_by`,`modified`,`modified_by`) values (1,5,1,'01810010175702',NULL,'300.00',1,NULL,'sistem',NULL,'sistem'),(2,5,2,'4000209866011',NULL,'100.00',1,NULL,'sistem',NULL,'sistem'),(3,5,5,'56131428',NULL,'0.00',1,NULL,'sistem',NULL,'sistem'),(4,5,3,'0901888140',NULL,'0.00',1,NULL,'sistem',NULL,'sistem'),(5,5,4,'197884','41T0300A035-0197884','0.00',1,NULL,'sistem',NULL,'sistem');
+
+/*Table structure for table `gallery` */
+
+DROP TABLE IF EXISTS `gallery`;
+
+CREATE TABLE `gallery` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `versions_data` text NOT NULL,
+  `name` tinyint(1) NOT NULL DEFAULT '1',
+  `description` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+/*Data for the table `gallery` */
+
+insert  into `gallery`(`id`,`versions_data`,`name`,`description`) values (1,'a:2:{s:5:\"small\";a:1:{s:6:\"resize\";a:2:{i:0;i:200;i:1;N;}}s:6:\"medium\";a:1:{s:6:\"resize\";a:2:{i:0;i:800;i:1;N;}}}',1,1);
+
+/*Table structure for table `gallery_photo` */
+
+DROP TABLE IF EXISTS `gallery_photo`;
+
+CREATE TABLE `gallery_photo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `gallery_id` int(11) NOT NULL,
+  `rank` int(11) NOT NULL DEFAULT '0',
+  `name` varchar(512) NOT NULL DEFAULT '',
+  `description` text,
+  `file_name` varchar(128) NOT NULL DEFAULT '',
+  `link` varchar(200) DEFAULT NULL,
+  `preview` varchar(300) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_gallery_photo_gallery1` (`gallery_id`),
+  CONSTRAINT `fk_gallery_photo_gallery1` FOREIGN KEY (`gallery_id`) REFERENCES `gallery` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+
+/*Data for the table `gallery_photo` */
+
+insert  into `gallery_photo`(`id`,`gallery_id`,`rank`,`name`,`description`,`file_name`,`link`,`preview`) values (5,1,5,'profile','testljasdf','testtest.jpg',NULL,NULL),(7,1,7,'asdfdsasdfsdf','safsdsdfdsdfdfsf','landscape-wallpaper-fengjingbizhi-allimg-upimg-green-23156.jpg',NULL,NULL),(9,1,9,'asdfsdasfasf','fsadfasdfsdf','IMG_1413.JPG',NULL,NULL),(10,1,10,'',NULL,'IMG_1415.JPG',NULL,NULL),(11,1,11,'',NULL,'IMG_1414.JPG',NULL,NULL);
 
 /*Table structure for table `months` */
 
@@ -65,9 +103,11 @@ CREATE TABLE `months` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 /*Data for the table `months` */
+
+insert  into `months`(`id`,`name`) values (1,'January'),(2,'February'),(3,'March'),(4,'April'),(5,'May'),(6,'June'),(7,'July'),(8,'August'),(9,'September'),(10,'October'),(11,'November'),(12,'December');
 
 /*Table structure for table `montly_installment_files` */
 
@@ -110,11 +150,45 @@ CREATE TABLE `montly_installments` (
   PRIMARY KEY (`id`),
   KEY `fk_monthly_rental_property_tenant_id` (`property_tenant_id`),
   KEY `fk_monthly_rental_pay_list_id` (`pay_list_id`),
-  CONSTRAINT `fk_monthly_rental_property_tenant_id` FOREIGN KEY (`property_tenant_id`) REFERENCES `property_tenants` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_monthly_rental_pay_list_id` FOREIGN KEY (`pay_list_id`) REFERENCES `pay_lists` (`id`)
+  CONSTRAINT `fk_monthly_rental_pay_list_id` FOREIGN KEY (`pay_list_id`) REFERENCES `pay_lists` (`id`),
+  CONSTRAINT `fk_monthly_rental_property_tenant_id` FOREIGN KEY (`property_tenant_id`) REFERENCES `property_tenants` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `montly_installments` */
+
+/*Table structure for table `pay_bills` */
+
+DROP TABLE IF EXISTS `pay_bills`;
+
+CREATE TABLE `pay_bills` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `bill_id` int(11) DEFAULT NULL,
+  `month_id` int(11) DEFAULT NULL,
+  `year` int(4) DEFAULT '2000',
+  `bill_date` date DEFAULT NULL,
+  `from_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
+  `amount_due` decimal(11,2) DEFAULT NULL,
+  `is_pay` tinyint(1) DEFAULT '0',
+  `pay_list_id` int(11) DEFAULT NULL,
+  `payment_date` date DEFAULT NULL,
+  `is_active` tinyint(1) DEFAULT '1',
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  `created_by` varchar(20) DEFAULT 'sistem',
+  `modified_by` varchar(20) DEFAULT 'sistem',
+  PRIMARY KEY (`id`),
+  KEY `fk_pay_bill_id` (`bill_id`),
+  KEY `fk_pay_bill_month_id` (`month_id`),
+  KEY `fk_pay_bill_pay_list_id` (`pay_list_id`),
+  CONSTRAINT `fk_pay_bill_id` FOREIGN KEY (`bill_id`) REFERENCES `bills` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_pay_bill_month_id` FOREIGN KEY (`month_id`) REFERENCES `months` (`id`),
+  CONSTRAINT `fk_pay_bill_pay_list_id` FOREIGN KEY (`pay_list_id`) REFERENCES `pay_lists` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+/*Data for the table `pay_bills` */
+
+insert  into `pay_bills`(`id`,`bill_id`,`month_id`,`year`,`bill_date`,`from_date`,`end_date`,`amount_due`,`is_pay`,`pay_list_id`,`payment_date`,`is_active`,`created`,`modified`,`created_by`,`modified_by`) values (1,4,11,2013,'2013-11-14','2013-11-13','2013-12-13','109.65',1,2,'2013-12-14',1,NULL,NULL,'sistem','sistem');
 
 /*Table structure for table `pay_lists` */
 
@@ -149,20 +223,23 @@ CREATE TABLE `properties` (
   `created` datetime DEFAULT NULL,
   `modified_by` varchar(20) DEFAULT 'sistem',
   `modified` datetime DEFAULT NULL,
+  `gallery_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_properties_user_id` (`user_id`),
   KEY `fk_properties_property_type_id` (`property_type_id`),
   KEY `fk_properties_property_status_id` (`property_status_id`),
   KEY `fk_properties_state_id` (`state_id`),
-  CONSTRAINT `fk_properties_user_id` FOREIGN KEY (`user_id`) REFERENCES `tbl_users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_properties_property_type_id` FOREIGN KEY (`property_type_id`) REFERENCES `property_types` (`id`),
+  KEY `fk_properties_gallery_id` (`gallery_id`),
+  CONSTRAINT `fk_properties_gallery_id` FOREIGN KEY (`gallery_id`) REFERENCES `gallery` (`id`),
   CONSTRAINT `fk_properties_property_status_id` FOREIGN KEY (`property_status_id`) REFERENCES `property_statuses` (`id`),
-  CONSTRAINT `fk_properties_state_id` FOREIGN KEY (`state_id`) REFERENCES `states` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_properties_property_type_id` FOREIGN KEY (`property_type_id`) REFERENCES `property_types` (`id`),
+  CONSTRAINT `fk_properties_state_id` FOREIGN KEY (`state_id`) REFERENCES `states` (`id`),
+  CONSTRAINT `fk_properties_user_id` FOREIGN KEY (`user_id`) REFERENCES `tbl_users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 /*Data for the table `properties` */
 
-insert  into `properties`(`id`,`user_id`,`property_type_id`,`property_status_id`,`address`,`address_more`,`postcode`,`city`,`state_id`,`is_active`,`created_by`,`created`,`modified_by`,`modified`) values (4,2,2,1,'Block D-10-12A, Apartment Taman Medan Jaya','No 2A, Jalan PJS 2/1','46000','Petaling Jaya',12,1,'sistem',NULL,'sistem',NULL),(5,2,4,2,'No 6, Jalan Bukit Emas 2b','Taman Bukit Emas','43300','Seri Kembangan',12,1,'sistem',NULL,'sistem',NULL);
+insert  into `properties`(`id`,`user_id`,`property_type_id`,`property_status_id`,`address`,`address_more`,`postcode`,`city`,`state_id`,`is_active`,`created_by`,`created`,`modified_by`,`modified`,`gallery_id`) values (4,2,2,1,'Block D-10-12A, Apartment Taman Medan Jaya','No 2A, Jalan PJS 2/1','46000','Petaling Jaya',12,1,'sistem',NULL,'sistem',NULL,NULL),(5,2,4,2,'No 6, Jalan Bukit Emas 2b','Taman Bukit Emas','43300','Seri Kembangan',12,1,'sistem',NULL,'sistem',NULL,NULL),(6,2,1,1,'asdfsdf','asdfsdf','2423','asdfsd',1,1,'sistem',NULL,'sistem',NULL,NULL),(7,2,1,1,'asdfsdf','asdfsdf','2423','asdfsd',1,1,'sistem',NULL,'sistem',NULL,1);
 
 /*Table structure for table `property_statuses` */
 
@@ -326,7 +403,7 @@ CREATE TABLE `tbl_users` (
 
 /*Data for the table `tbl_users` */
 
-insert  into `tbl_users`(`id`,`username`,`password`,`email`,`activkey`,`superuser`,`status`,`create_at`,`lastvisit_at`) values (1,'admin','5f4dcc3b5aa765d61d8327deb882cf99','admin@myproperty.com','27921dfba42c627fb39e858cdb31c1ff',1,1,'2014-08-10 01:51:22','2014-08-12 17:38:24'),(2,'haezal','5716f55419a25cef848511791a483b21','ezalepy@gmail.com','98751617ce1f2877a182a18ea19ad276',0,1,'2014-08-12 17:36:04','2014-08-12 17:36:56');
+insert  into `tbl_users`(`id`,`username`,`password`,`email`,`activkey`,`superuser`,`status`,`create_at`,`lastvisit_at`) values (1,'admin','5f4dcc3b5aa765d61d8327deb882cf99','admin@myproperty.com','27921dfba42c627fb39e858cdb31c1ff',1,1,'2014-08-10 01:51:22','2014-08-12 17:38:24'),(2,'haezal','5716f55419a25cef848511791a483b21','ezalepy@gmail.com','98751617ce1f2877a182a18ea19ad276',0,1,'2014-08-12 17:36:04','2014-08-14 18:33:11');
 
 /*Table structure for table `tenancy_statuses` */
 

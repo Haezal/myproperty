@@ -18,13 +18,16 @@
  * @property string $created
  * @property string $modified_by
  * @property string $modified
+ * @property integer $gallery_id
  *
  * The followings are the available model relations:
- * @property Users $user
- * @property PropertyTypes $propertyType
+ * @property Bills[] $bills
+ * @property Gallery $gallery
  * @property PropertyStatuses $propertyStatus
+ * @property PropertyTypes $propertyType
  * @property States $state
- * @property PropertyBills[] $propertyBills
+ * @property Users $user
+ * @property PropertyTenants[] $propertyTenants
  */
 class Properties extends CActiveRecord
 {
@@ -45,7 +48,7 @@ class Properties extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('user_id, property_type_id, property_status_id, address, postcode, city, state_id', 'required'),
-			array('user_id, property_type_id, property_status_id, state_id, is_active', 'numerical', 'integerOnly'=>true),
+			array('user_id, property_type_id, property_status_id, state_id, is_active, gallery_id', 'numerical', 'integerOnly'=>true),
 			array('address, address_more', 'length', 'max'=>200),
 			array('postcode', 'length', 'max'=>10),
 			array('city', 'length', 'max'=>100),
@@ -53,7 +56,7 @@ class Properties extends CActiveRecord
 			array('created, modified', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, user_id, property_type_id, property_status_id, address, address_more, postcode, city, state_id, is_active, created_by, created, modified_by, modified', 'safe', 'on'=>'search'),
+			array('id, user_id, property_type_id, property_status_id, address, address_more, postcode, city, state_id, is_active, created_by, created, modified_by, modified, gallery_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -65,10 +68,13 @@ class Properties extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
-			'propertyType' => array(self::BELONGS_TO, 'PropertyTypes', 'property_type_id'),
+			'bills' => array(self::HAS_MANY, 'Bills', 'property_id'),
+			'gallery' => array(self::BELONGS_TO, 'Gallery', 'gallery_id'),
 			'propertyStatus' => array(self::BELONGS_TO, 'PropertyStatuses', 'property_status_id'),
+			'propertyType' => array(self::BELONGS_TO, 'PropertyTypes', 'property_type_id'),
 			'state' => array(self::BELONGS_TO, 'States', 'state_id'),
+			'user' => array(self::BELONGS_TO, 'Users', 'user_id'),
+			'propertyTenants' => array(self::HAS_MANY, 'PropertyTenants', 'property_id'),
 		);
 	}
 
@@ -80,18 +86,19 @@ class Properties extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'user_id' => 'User',
-			'property_type_id' => 'Type',
-			'property_status_id' => 'Status',
+			'property_type_id' => 'Property Type',
+			'property_status_id' => 'Property Status',
 			'address' => 'Address',
 			'address_more' => 'Address More',
 			'postcode' => 'Postcode',
 			'city' => 'City',
 			'state_id' => 'State',
-			'is_active' => 'Active?',
+			'is_active' => 'Is Active',
 			'created_by' => 'Created By',
 			'created' => 'Created',
 			'modified_by' => 'Modified By',
 			'modified' => 'Modified',
+			'gallery_id' => 'Gallery',
 		);
 	}
 
@@ -127,6 +134,7 @@ class Properties extends CActiveRecord
 		$criteria->compare('created',$this->created,true);
 		$criteria->compare('modified_by',$this->modified_by,true);
 		$criteria->compare('modified',$this->modified,true);
+		$criteria->compare('gallery_id',$this->gallery_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

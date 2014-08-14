@@ -10,7 +10,7 @@ return array(
 	'name'=>'My Property Management',
 
 	// preloading 'log' component
-	'preload'=>array('log'),
+	'preload'=>array('log', 'booster'),
 
 	// autoloading model and component classes
 	'import'=>array(
@@ -18,6 +18,8 @@ return array(
 		'application.components.*',
 		'application.modules.user.models.*',
         'application.modules.user.components.*',
+        'ext.galleryManager.models.*',
+        'ext.yii-image.Image',
 	),
 
 	'modules'=>array(
@@ -113,6 +115,23 @@ return array(
 				),
 				*/
 			),
+		),
+		'booster' => array(
+		    'class' => 'ext.booster.components.Booster',
+		),
+		'image'=>array(
+            'class'=>'ext.yii-image.CImageComponent',
+            // GD or ImageMagick
+            'driver'=>'GD',
+            // ImageMagick setup path
+            //~ 'params'=>array('directory'=>'D:/Program Files/ImageMagick-6.4.8-Q16'),
+            //~ 'params'=>array('directory'=>'/usr/lib/ImageMagick-6.8.7'),
+        ),
+
+		'phpThumb'=>array(
+			'class'=>'ext.EPhpThumb.EPhpThumb',
+			//~ 'options'=>array(optional phpThumb specific options are added here)
+			'options'=>array(),
 		),
 	),
 

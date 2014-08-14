@@ -32,7 +32,7 @@ class PropertiesController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update', 'gallery'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -73,8 +73,25 @@ class PropertiesController extends Controller
 			$model->attributes=$_POST['Properties'];
             if(!Yii::app()->user->isAdmin())
                 $model->user_id=$user_id;
-			if($model->save())
+			if($model->save()){
+
+				$gallery = new Gallery();
+				$gallery->name = true;
+				$gallery->description = true;
+				$gallery->versions = array(
+				    'small' => array(
+				        'resize' => array(200, null),
+				    ),
+				    'medium' => array(
+				        'resize' => array(800, null),
+				    )
+				);
+				$gallery->save();
+
+				$model->gallery_id=$gallery->id;
+				$model->save();
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		// get dropdown value
@@ -91,6 +108,14 @@ class PropertiesController extends Controller
             'users'=>$users,
 		));
 	}
+
+    public function actionGallery($id){
+        $model = $this->loadModel($id);
+
+        $gallery = Gallery::model()->findByPk($model->gallery_id);
+
+        $this->render('gallery', array('model'=>$model, 'gallery'=>$gallery));
+    }
 
 	/**
 	 * Updates a particular model.
@@ -115,6 +140,7 @@ class PropertiesController extends Controller
 			'model'=>$model,
 		));
 	}
+
 
 	/**
 	 * Deletes a particular model.
