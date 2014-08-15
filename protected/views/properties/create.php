@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'List Properties', 'url'=>array('index')),
-	array('label'=>'Manage Properties', 'url'=>array('admin')),
+	array('label'=>'Manage Properties', 'url'=>array('admin'), 'visible'=>Yii::app()->user->isAdmin()),
 );
 ?>
 

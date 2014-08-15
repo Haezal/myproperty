@@ -12,7 +12,7 @@ $this->menu=array(
 	array('label'=>'List Properties', 'url'=>array('index')),
 	array('label'=>'Create Properties', 'url'=>array('create')),
 	array('label'=>'View Properties', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Properties', 'url'=>array('admin')),
+	array('label'=>'Manage Properties', 'url'=>array('admin'), 'visible'=>Yii::app()->user->isAdmin()),
 );
 ?>
 

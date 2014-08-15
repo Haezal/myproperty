@@ -51,8 +51,28 @@ class PropertiesController extends Controller
 	 */
 	public function actionView($id)
 	{
+		$height=600;
+		$width=800;
+
+		$model=$this->loadModel($id);
+
+		// get gallery photo to view
+		$gallery = GalleryPhoto::model()->findAllByAttributes(array('gallery_id'=>$model->gallery_id));
+
+		if($gallery){
+            $images = null;
+            foreach($gallery as $v) {
+                $images[$v->id]['id'] = $v->id;
+                $images[$v->id]['caption'] = $v->description;
+                $images[$v->id]['content'] = '<img height="'.$height.'" width="'.$width.'" src="' . Yii::app()->createUrl("site/showImage", array("id" => $v->id,'height'=>600,'width'=>800)).'" />';
+                $images[$v->id]['thumb'] = '<img src="' . Yii::app()->createUrl("site/showImage", array("id" => $v->id,'height'=>600,'width'=>800)).'" />';
+            }
+        }
+
 		$this->render('view',array(
-			'model'=>$this->loadModel($id),
+			'model'=>$model,
+			'gallery'=>$gallery,
+			'images'=>$images,
 		));
 	}
 
@@ -90,15 +110,15 @@ class PropertiesController extends Controller
 
 				$model->gallery_id=$gallery->id;
 				$model->save();
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('gallery','id'=>$model->id));
 			}
 		}
 
 		// get dropdown value
-		$propertyTypes=CHtml::listData(PropertyTypes::model()->findAll(), 'id', 'name');
-        $propertyStatuses=CHtml::listData(PropertyStatuses::model()->findAll(), 'id', 'name');
-        $states=CHtml::listData(States::model()->findAll(), 'id', 'name');
-        $users=CHtml::listData(User::model()->findAll(), 'id', 'username');
+		$propertyTypes=array_merge(array(''=>'- Please Choose -'), CHtml::listData(PropertyTypes::model()->findAll(), 'id', 'name'));
+        $propertyStatuses=array_merge(array(''=>'- Please Choose -'), CHtml::listData(PropertyStatuses::model()->findAll(), 'id', 'name'));
+        $states=array_merge(array(''=>'- Please Choose -'), CHtml::listData(States::model()->findAll(), 'id', 'name'));
+        $users=array_merge(array(''=>'- Please Choose -'), CHtml::listData(User::model()->findAll(), 'id', 'username'));
 
 		$this->render('create',array(
 			'model'=>$model,

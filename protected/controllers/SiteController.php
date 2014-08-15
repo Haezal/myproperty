@@ -106,4 +106,33 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
+
+	public function actionShowImage($id=1,$height=100,$width=100)
+	{
+		$folder = Yii::app()->basePath.'/../gallery/';
+
+		if(!is_dir($folder)){
+			mkdir($folder);
+		}
+		$img = GalleryPhoto::model()->findByPk($id);
+		//~ $filename = $id.'_h'.$height.'w'.$width.'.jpg';
+		$filename = $id.'_h'.$height.'_w'.$width.'.jpg';
+		$filenameOri = $id.'.jpg';
+        $file=$folder.$filename;
+
+        if (file_exists($file))
+        {
+		   $request = Yii::app()->getRequest();
+		   $request->sendFile(basename($file),file_get_contents($file));
+        }		
+		else {
+			$thumb=Yii::app()->phpThumb->create($folder.$filenameOri);
+			$thumb->resize($width,$height);
+			$thumb->save($file);			
+			//~ $thumb->show();			
+		   $request = Yii::app()->getRequest();
+		   $request->sendFile(basename($file),file_get_contents($file));
+		}
+
+	}
 }

@@ -1570,3 +1570,417 @@ Stack trace:
 REQUEST_URI=/myproperty/properties
 HTTP_REFERER=http://localhost/myproperty/user/profile/edit
 ---
+2014/08/15 03:05:52 [error] [php] strcasecmp() expects parameter 1 to be string, array given (C:\xampp\htdocs\yii-read-only\framework\web\helpers\CHtml.php:343)
+Stack trace:
+#0 C:\xampp\htdocs\yii-read-only\framework\web\CBaseController.php(126): require()
+#1 C:\xampp\htdocs\yii-read-only\framework\web\CBaseController.php(95): LoginController->renderInternal()
+#2 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(869): LoginController->renderFile()
+#3 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(782): LoginController->renderPartial()
+#4 C:\xampp\htdocs\myproperty\protected\modules\user\controllers\LoginController.php(28): LoginController->render()
+#5 C:\xampp\htdocs\yii-read-only\framework\web\actions\CInlineAction.php(49): LoginController->actionLogin()
+#6 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(286): LoginController->runAction()
+#8 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(265): LoginController->runActionWithFilters()
+#9 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(282): LoginController->run()
+#10 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\yii-read-only\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\myproperty\index.php(13): CWebApplication->run()
+REQUEST_URI=/myproperty/user/login
+in C:\xampp\htdocs\myproperty\protected\modules\user\views\user\login.php (21)
+in C:\xampp\htdocs\myproperty\protected\modules\user\controllers\LoginController.php (28)
+in C:\xampp\htdocs\myproperty\index.php (13)
+2014/08/15 03:11:16 [error] [exception.CException] exception 'CException' with message 'Alias "booster.widgetes.TbActiveForm" is invalid. Make sure it points to an existing PHP file and the file is readable.' in C:\xampp\htdocs\yii-read-only\framework\YiiBase.php:323
+Stack trace:
+#0 C:\xampp\htdocs\yii-read-only\framework\web\CWidgetFactory.php(146): YiiBase::import('booster.widgete...', true)
+#1 C:\xampp\htdocs\yii-read-only\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(PropertiesController), 'booster.widgete...', Array)
+#2 C:\xampp\htdocs\yii-read-only\framework\web\CBaseController.php(197): CBaseController->createWidget('booster.widgete...', Array)
+#3 C:\xampp\htdocs\myproperty\protected\views\properties\_form.php(17): CBaseController->beginWidget('booster.widgete...', Array)
+#4 C:\xampp\htdocs\yii-read-only\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\yii-read-only\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#7 C:\xampp\htdocs\myproperty\protected\views\properties\create.php(24): CController->renderPartial('_form', Array)
+#8 C:\xampp\htdocs\yii-read-only\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#9 C:\xampp\htdocs\yii-read-only\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#10 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#11 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#12 C:\xampp\htdocs\myproperty\protected\controllers\PropertiesController.php(109): CController->render('create', Array)
+#13 C:\xampp\htdocs\yii-read-only\framework\web\actions\CInlineAction.php(49): PropertiesController->actionCreate()
+#14 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#17 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 C:\xampp\htdocs\yii-read-only\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(291): CFilterChain->run()
+#21 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(282): CController->run('create')
+#23 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(141): CWebApplication->runController('properties/crea...')
+#24 C:\xampp\htdocs\yii-read-only\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#25 C:\xampp\htdocs\myproperty\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/myproperty/properties/create
+HTTP_REFERER=http://localhost/myproperty/properties
+---
+2014/08/15 03:20:05 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\yii-read-only\framework\web\auth\CAccessControlFilter.php:182
+Stack trace:
+#0 C:\xampp\htdocs\yii-read-only\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii-read-only\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(141): CWebApplication->runController('properties/admi...')
+#9 C:\xampp\htdocs\yii-read-only\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\myproperty\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/myproperty/properties/admin
+HTTP_REFERER=http://localhost/myproperty/properties/index
+---
+2014/08/15 03:46:27 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`myproperty`.`properties`, CONSTRAINT `fk_properties_property_status_id` FOREIGN KEY (`property_status_id`) REFERENCES `property_statuses` (`id`)). The SQL statement executed was: INSERT INTO `properties` (`is_active`, `created_by`, `modified_by`, `property_type_id`, `property_status_id`, `address`, `address_more`, `postcode`, `city`, `state_id`, `user_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10).
+in C:\xampp\htdocs\myproperty\protected\controllers\PropertiesController.php (76)
+in C:\xampp\htdocs\myproperty\index.php (13)
+2014/08/15 03:46:27 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`myproperty`.`properties`, CONSTRAINT `fk_properties_property_status_id` FOREIGN KEY (`property_status_id`) REFERENCES `property_statuses` (`id`)). The SQL statement executed was: INSERT INTO `properties` (`is_active`, `created_by`, `modified_by`, `property_type_id`, `property_status_id`, `address`, `address_more`, `postcode`, `city`, `state_id`, `user_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10)' in C:\xampp\htdocs\yii-read-only\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\xampp\htdocs\yii-read-only\framework\db\ar\CActiveRecord.php(1080): CDbCommand->execute()
+#1 C:\xampp\htdocs\yii-read-only\framework\db\ar\CActiveRecord.php(809): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\myproperty\protected\controllers\PropertiesController.php(76): CActiveRecord->save()
+#3 C:\xampp\htdocs\yii-read-only\framework\web\actions\CInlineAction.php(49): PropertiesController->actionCreate()
+#4 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\yii-read-only\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(282): CController->run('create')
+#13 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(141): CWebApplication->runController('properties/crea...')
+#14 C:\xampp\htdocs\yii-read-only\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\myproperty\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/myproperty/properties/create
+HTTP_REFERER=http://localhost/myproperty/properties/create
+---
+2014/08/15 03:47:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "arkib".' in C:\xampp\htdocs\yii-read-only\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(270): CController->missingAction('arkib')
+#1 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(282): CController->run('arkib')
+#2 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(141): CWebApplication->runController('properties/arki...')
+#3 C:\xampp\htdocs\yii-read-only\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\myproperty\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/myproperty/properties/arkib
+HTTP_REFERER=http://localhost/myproperty/properties/gallery/9
+---
+2014/08/15 03:54:21 [error] [exception.CException] exception 'CException' with message 'GalleryPhoto and its behaviors do not have a method or closure named "findAllByAttribute".' in C:\xampp\htdocs\yii-read-only\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\xampp\htdocs\yii-read-only\framework\db\ar\CActiveRecord.php(227): CComponent->__call('findAllByAttrib...', Array)
+#1 C:\xampp\htdocs\myproperty\protected\controllers\PropertiesController.php(60): CActiveRecord->__call('findAllByAttrib...', Array)
+#2 C:\xampp\htdocs\myproperty\protected\controllers\PropertiesController.php(60): GalleryPhoto->findAllByAttribute(Array)
+#3 [internal function]: PropertiesController->actionView('9')
+#4 C:\xampp\htdocs\yii-read-only\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(PropertiesController), Array)
+#5 C:\xampp\htdocs\yii-read-only\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(PropertiesController), Object(ReflectionMethod), Array)
+#6 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii-read-only\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(282): CController->run('view')
+#15 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(141): CWebApplication->runController('properties/view')
+#16 C:\xampp\htdocs\yii-read-only\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\myproperty\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/myproperty/properties/9
+HTTP_REFERER=http://localhost/myproperty/properties/
+---
+2014/08/15 03:54:29 [error] [php] Illegal string offset 'caption' (C:\xampp\htdocs\myproperty\protected\controllers\PropertiesController.php:67)
+Stack trace:
+#0 C:\xampp\htdocs\yii-read-only\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilterChain.php(133): PropertiesController->runAction()
+#3 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\yii-read-only\framework\web\filters\CInlineFilter.php(58): PropertiesController->filterAccessControl()
+#6 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(265): PropertiesController->runActionWithFilters()
+#9 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(282): PropertiesController->run()
+#10 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\yii-read-only\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\myproperty\index.php(13): CWebApplication->run()
+REQUEST_URI=/myproperty/properties/9
+in C:\xampp\htdocs\myproperty\protected\controllers\PropertiesController.php (67)
+in C:\xampp\htdocs\myproperty\index.php (13)
+2014/08/15 03:55:15 [error] [php] Illegal string offset 'caption' (C:\xampp\htdocs\myproperty\protected\controllers\PropertiesController.php:66)
+Stack trace:
+#0 C:\xampp\htdocs\yii-read-only\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilterChain.php(133): PropertiesController->runAction()
+#3 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\yii-read-only\framework\web\filters\CInlineFilter.php(58): PropertiesController->filterAccessControl()
+#6 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(265): PropertiesController->runActionWithFilters()
+#9 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(282): PropertiesController->run()
+#10 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\yii-read-only\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\myproperty\index.php(13): CWebApplication->run()
+REQUEST_URI=/myproperty/properties/9
+in C:\xampp\htdocs\myproperty\protected\controllers\PropertiesController.php (66)
+in C:\xampp\htdocs\myproperty\index.php (13)
+2014/08/15 03:55:37 [error] [php] Illegal string offset 'content' (C:\xampp\htdocs\myproperty\protected\controllers\PropertiesController.php:67)
+Stack trace:
+#0 C:\xampp\htdocs\yii-read-only\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilterChain.php(133): PropertiesController->runAction()
+#3 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\yii-read-only\framework\web\filters\CInlineFilter.php(58): PropertiesController->filterAccessControl()
+#6 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(265): PropertiesController->runActionWithFilters()
+#9 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(282): PropertiesController->run()
+#10 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\yii-read-only\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\myproperty\index.php(13): CWebApplication->run()
+REQUEST_URI=/myproperty/properties/9
+in C:\xampp\htdocs\myproperty\protected\controllers\PropertiesController.php (67)
+in C:\xampp\htdocs\myproperty\index.php (13)
+2014/08/15 03:55:41 [error] [php] Illegal string offset 'content' (C:\xampp\htdocs\myproperty\protected\controllers\PropertiesController.php:67)
+Stack trace:
+#0 C:\xampp\htdocs\yii-read-only\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilterChain.php(133): PropertiesController->runAction()
+#3 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\yii-read-only\framework\web\filters\CInlineFilter.php(58): PropertiesController->filterAccessControl()
+#6 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(265): PropertiesController->runActionWithFilters()
+#9 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(282): PropertiesController->run()
+#10 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\yii-read-only\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\myproperty\index.php(13): CWebApplication->run()
+REQUEST_URI=/myproperty/properties/9
+in C:\xampp\htdocs\myproperty\protected\controllers\PropertiesController.php (67)
+in C:\xampp\htdocs\myproperty\index.php (13)
+2014/08/15 03:56:29 [error] [php] Illegal string offset 'content' (C:\xampp\htdocs\myproperty\protected\controllers\PropertiesController.php:67)
+Stack trace:
+#0 C:\xampp\htdocs\yii-read-only\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilterChain.php(133): PropertiesController->runAction()
+#3 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\yii-read-only\framework\web\filters\CInlineFilter.php(58): PropertiesController->filterAccessControl()
+#6 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(265): PropertiesController->runActionWithFilters()
+#9 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(282): PropertiesController->run()
+#10 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\yii-read-only\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\myproperty\index.php(13): CWebApplication->run()
+REQUEST_URI=/myproperty/properties/9
+in C:\xampp\htdocs\myproperty\protected\controllers\PropertiesController.php (67)
+in C:\xampp\htdocs\myproperty\index.php (13)
+2014/08/15 03:56:30 [error] [php] Illegal string offset 'content' (C:\xampp\htdocs\myproperty\protected\controllers\PropertiesController.php:67)
+Stack trace:
+#0 C:\xampp\htdocs\yii-read-only\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilterChain.php(133): PropertiesController->runAction()
+#3 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\yii-read-only\framework\web\filters\CInlineFilter.php(58): PropertiesController->filterAccessControl()
+#6 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(265): PropertiesController->runActionWithFilters()
+#9 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(282): PropertiesController->run()
+#10 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\yii-read-only\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\myproperty\index.php(13): CWebApplication->run()
+REQUEST_URI=/myproperty/properties/9
+in C:\xampp\htdocs\myproperty\protected\controllers\PropertiesController.php (67)
+in C:\xampp\htdocs\myproperty\index.php (13)
+2014/08/15 03:57:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "showImage".' in C:\xampp\htdocs\yii-read-only\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(270): CController->missingAction('showImage')
+#1 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(282): CController->run('showImage')
+#2 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(141): CWebApplication->runController('site/showImage')
+#3 C:\xampp\htdocs\yii-read-only\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\myproperty\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/myproperty/site/showImage/15?height=600&width=800
+HTTP_REFERER=http://localhost/myproperty/properties/9
+---
+2014/08/15 03:57:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "showImage".' in C:\xampp\htdocs\yii-read-only\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(270): CController->missingAction('showImage')
+#1 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(282): CController->run('showImage')
+#2 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(141): CWebApplication->runController('site/showImage')
+#3 C:\xampp\htdocs\yii-read-only\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\myproperty\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/myproperty/site/showImage/13?height=600&width=800
+HTTP_REFERER=http://localhost/myproperty/properties/9
+---
+2014/08/15 03:57:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "showImage".' in C:\xampp\htdocs\yii-read-only\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(270): CController->missingAction('showImage')
+#1 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(282): CController->run('showImage')
+#2 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(141): CWebApplication->runController('site/showImage')
+#3 C:\xampp\htdocs\yii-read-only\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\myproperty\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/myproperty/site/showImage/14?height=600&width=800
+HTTP_REFERER=http://localhost/myproperty/properties/9
+---
+2014/08/15 03:57:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "showImage".' in C:\xampp\htdocs\yii-read-only\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(270): CController->missingAction('showImage')
+#1 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(282): CController->run('showImage')
+#2 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(141): CWebApplication->runController('site/showImage')
+#3 C:\xampp\htdocs\yii-read-only\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\myproperty\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/myproperty/site/showImage/12?height=600&width=800
+HTTP_REFERER=http://localhost/myproperty/properties/9
+---
+2014/08/15 03:57:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "showImage".' in C:\xampp\htdocs\yii-read-only\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(270): CController->missingAction('showImage')
+#1 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(282): CController->run('showImage')
+#2 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(141): CWebApplication->runController('site/showImage')
+#3 C:\xampp\htdocs\yii-read-only\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\myproperty\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/myproperty/site/showImage/15?height=600&width=800
+HTTP_REFERER=http://localhost/myproperty/properties/9
+---
+2014/08/15 03:57:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "showImage".' in C:\xampp\htdocs\yii-read-only\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(270): CController->missingAction('showImage')
+#1 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(282): CController->run('showImage')
+#2 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(141): CWebApplication->runController('site/showImage')
+#3 C:\xampp\htdocs\yii-read-only\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\myproperty\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/myproperty/site/showImage/12?height=600&width=800
+HTTP_REFERER=http://localhost/myproperty/properties/9
+---
+2014/08/15 03:57:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "showImage".' in C:\xampp\htdocs\yii-read-only\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(270): CController->missingAction('showImage')
+#1 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(282): CController->run('showImage')
+#2 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(141): CWebApplication->runController('site/showImage')
+#3 C:\xampp\htdocs\yii-read-only\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\myproperty\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/myproperty/site/showImage/13?height=600&width=800
+HTTP_REFERER=http://localhost/myproperty/properties/9
+---
+2014/08/15 03:57:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "showImage".' in C:\xampp\htdocs\yii-read-only\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(270): CController->missingAction('showImage')
+#1 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(282): CController->run('showImage')
+#2 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(141): CWebApplication->runController('site/showImage')
+#3 C:\xampp\htdocs\yii-read-only\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\myproperty\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/myproperty/site/showImage/14?height=600&width=800
+HTTP_REFERER=http://localhost/myproperty/properties/9
+---
+2014/08/15 04:01:13 [error] [php] Undefined variable: height (C:\xampp\htdocs\myproperty\protected\controllers\PropertiesController.php:67)
+Stack trace:
+#0 C:\xampp\htdocs\yii-read-only\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilterChain.php(133): PropertiesController->runAction()
+#3 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\yii-read-only\framework\web\filters\CInlineFilter.php(58): PropertiesController->filterAccessControl()
+#6 C:\xampp\htdocs\yii-read-only\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(265): PropertiesController->runActionWithFilters()
+#9 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(282): PropertiesController->run()
+#10 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\yii-read-only\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\myproperty\index.php(13): CWebApplication->run()
+REQUEST_URI=/myproperty/properties/9
+in C:\xampp\htdocs\myproperty\protected\controllers\PropertiesController.php (67)
+in C:\xampp\htdocs\myproperty\index.php (13)
+2014/08/15 04:04:10 [error] [exception.CException] exception 'CException' with message 'Image file not found: C:\xampp\htdocs\myproperty\protected/../gallery/1.jpg' in C:\xampp\htdocs\myproperty\protected\extensions\EPhpThumb\EPhpThumb.php:59
+Stack trace:
+#0 C:\xampp\htdocs\myproperty\protected\extensions\EPhpThumb\EPhpThumb.php(44): EPhpThumb::thumbFactory('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\myproperty\protected\controllers\SiteController.php(129): EPhpThumb->create('C:\\xampp\\htdocs...')
+#2 [internal function]: SiteController->actionShowImage(1, '600', '800')
+#3 C:\xampp\htdocs\yii-read-only\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 C:\xampp\htdocs\yii-read-only\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(282): CController->run('showImage')
+#9 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(141): CWebApplication->runController('site/showImage/...')
+#10 C:\xampp\htdocs\yii-read-only\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\myproperty\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/myproperty/site/showImage/12small?height=600&width=800
+HTTP_REFERER=http://localhost/myproperty/properties/9
+---
+2014/08/15 04:04:10 [error] [exception.CException] exception 'CException' with message 'Image file not found: C:\xampp\htdocs\myproperty\protected/../gallery/1.jpg' in C:\xampp\htdocs\myproperty\protected\extensions\EPhpThumb\EPhpThumb.php:59
+Stack trace:
+#0 C:\xampp\htdocs\myproperty\protected\extensions\EPhpThumb\EPhpThumb.php(44): EPhpThumb::thumbFactory('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\myproperty\protected\controllers\SiteController.php(129): EPhpThumb->create('C:\\xampp\\htdocs...')
+#2 [internal function]: SiteController->actionShowImage(1, '600', '800')
+#3 C:\xampp\htdocs\yii-read-only\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 C:\xampp\htdocs\yii-read-only\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(282): CController->run('showImage')
+#9 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(141): CWebApplication->runController('site/showImage/...')
+#10 C:\xampp\htdocs\yii-read-only\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\myproperty\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/myproperty/site/showImage/13small?height=600&width=800
+HTTP_REFERER=http://localhost/myproperty/properties/9
+---
+2014/08/15 04:04:10 [error] [exception.CException] exception 'CException' with message 'Image file not found: C:\xampp\htdocs\myproperty\protected/../gallery/1.jpg' in C:\xampp\htdocs\myproperty\protected\extensions\EPhpThumb\EPhpThumb.php:59
+Stack trace:
+#0 C:\xampp\htdocs\myproperty\protected\extensions\EPhpThumb\EPhpThumb.php(44): EPhpThumb::thumbFactory('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\myproperty\protected\controllers\SiteController.php(129): EPhpThumb->create('C:\\xampp\\htdocs...')
+#2 [internal function]: SiteController->actionShowImage(1, '600', '800')
+#3 C:\xampp\htdocs\yii-read-only\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 C:\xampp\htdocs\yii-read-only\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(282): CController->run('showImage')
+#9 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(141): CWebApplication->runController('site/showImage/...')
+#10 C:\xampp\htdocs\yii-read-only\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\myproperty\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/myproperty/site/showImage/14small?height=600&width=800
+HTTP_REFERER=http://localhost/myproperty/properties/9
+---
+2014/08/15 04:04:10 [error] [exception.CException] exception 'CException' with message 'Image file not found: C:\xampp\htdocs\myproperty\protected/../gallery/1.jpg' in C:\xampp\htdocs\myproperty\protected\extensions\EPhpThumb\EPhpThumb.php:59
+Stack trace:
+#0 C:\xampp\htdocs\myproperty\protected\extensions\EPhpThumb\EPhpThumb.php(44): EPhpThumb::thumbFactory('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\myproperty\protected\controllers\SiteController.php(129): EPhpThumb->create('C:\\xampp\\htdocs...')
+#2 [internal function]: SiteController->actionShowImage(1, '600', '800')
+#3 C:\xampp\htdocs\yii-read-only\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 C:\xampp\htdocs\yii-read-only\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 C:\xampp\htdocs\yii-read-only\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(282): CController->run('showImage')
+#9 C:\xampp\htdocs\yii-read-only\framework\web\CWebApplication.php(141): CWebApplication->runController('site/showImage/...')
+#10 C:\xampp\htdocs\yii-read-only\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\myproperty\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/myproperty/site/showImage/15small?height=600&width=800
+HTTP_REFERER=http://localhost/myproperty/properties/9
+---

@@ -18,20 +18,20 @@ $this->breadcrumbs=array(
 <p><?php echo UserModule::t("Please fill out the following form with your login credentials:"); ?></p>
 
 <div class="form">
-<?php echo CHtml::beginForm(); ?>
+<?php echo CHtml::beginForm(array('class'=>'form-horizontal')); ?>
 
 	<p class="note"><?php echo UserModule::t('Fields with <span class="required">*</span> are required.'); ?></p>
 	
 	<?php echo CHtml::errorSummary($model); ?>
-	
-	<div class="row">
-		<?php echo CHtml::activeLabelEx($model,'username'); ?>
-		<?php echo CHtml::activeTextField($model,'username') ?>
+
+	<div class="form-group">
+		<?php echo CHtml::activeLabelEx($model,'username', array('class'=>'col-sm-2 control-label')); ?>
+		<?php echo CHtml::activeTextField($model,'username', array('class'=>'form-control')) ?>
 	</div>
 	
-	<div class="row">
-		<?php echo CHtml::activeLabelEx($model,'password'); ?>
-		<?php echo CHtml::activePasswordField($model,'password') ?>
+	<div class="form-group">
+		<?php echo CHtml::activeLabelEx($model,'password', array('class'=>'col-sm-2 control-label')); ?>
+		<?php echo CHtml::activePasswordField($model,'password', array('class'=>'form-control')) ?>
 	</div>
 	
 	<div class="row">
@@ -44,9 +44,10 @@ $this->breadcrumbs=array(
 		<?php echo CHtml::activeCheckBox($model,'rememberMe'); ?>
 		<?php echo CHtml::activeLabelEx($model,'rememberMe'); ?>
 	</div>
-
-	<div class="row submit">
-		<?php echo CHtml::submitButton(UserModule::t("Login")); ?>
+	<div class="form-group">
+		<div class="col-sm-12">
+			<?php echo CHtml::submitButton(UserModule::t("Login"), array('class'=>'btn btn-default')); ?>
+		</div>
 	</div>
 	
 <?php echo CHtml::endForm(); ?>

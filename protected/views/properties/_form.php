@@ -6,8 +6,10 @@
 
 <div class="form">
 
-<?php $form=$this->beginWidget('CActiveForm', array(
+<?php $form=$this->beginWidget('booster.widgets.TbActiveForm', array(
 	'id'=>'properties-form',
+	'type'=>'horizontal',
+	'htmlOptions' => array('class' => 'well'), // for inset effect
 	// Please note: When you enable ajax validation, make sure the corresponding
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
@@ -20,65 +22,69 @@
 	<?php echo $form->errorSummary($model); ?>
     
     <?php if(Yii::app()->user->isAdmin()){?>
-    <div class="row">
-		<?php echo $form->labelEx($model,'user_id'); ?>
-		<?php echo $form->dropDownList($model,'user_id', $users, array('empty'=>'-- Choose --')); ?>
-		<?php echo $form->error($model,'user_id'); ?>
-	</div>
-    <?php } ?>
+		<?php echo $form->dropDownListGroup($model,'user_id', $users, array('empty'=>'-- Choose --')); ?>
+	<?php } ?>
+		<?php echo $form->dropDownListGroup(
+		$model,
+		'property_type_id', 
+		array(
+			'wrapperHtmlOptions' => array(
+				'class' => 'col-sm-6',
+			),
+			'widgetOptions'=>array(
+				'data'=>$propertyTypes,
+			),
+		)); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'property_type_id'); ?>
-		<?php echo $form->dropDownList($model,'property_type_id', $propertyTypes, array('empty'=>'-- Choose --')); ?>
-		<?php echo $form->error($model,'property_type_id'); ?>
-	</div>
+		<?php echo $form->dropDownListGroup(
+		$model,
+		'property_status_id', 
+		array(
+			'wrapperHtmlOptions' => array(
+				'class' => 'col-sm-3',
+			),
+			'widgetOptions'=>array(
+				'data'=>$propertyStatuses,
+			),
+		)); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'property_status_id'); ?>
-		<?php echo $form->dropDownList($model,'property_status_id', $propertyStatuses, array('empty'=>'-- Choose --')); ?>
-		<?php echo $form->error($model,'property_status_id'); ?>
-	</div>
+		<?php echo $form->textFieldGroup($model,'address',array('size'=>60,'maxlength'=>200)); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'address'); ?>
-		<?php echo $form->textField($model,'address',array('size'=>60,'maxlength'=>200)); ?>
-		<?php echo $form->error($model,'address'); ?>
-	</div>
+		<?php echo $form->textFieldGroup($model,'address_more',array('size'=>60,'maxlength'=>200)); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'address_more'); ?>
-		<?php echo $form->textField($model,'address_more',array('size'=>60,'maxlength'=>200)); ?>
-		<?php echo $form->error($model,'address_more'); ?>
-	</div>
+		<?php echo $form->textFieldGroup($model,'postcode',array('size'=>10,'maxlength'=>10)); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'postcode'); ?>
-		<?php echo $form->textField($model,'postcode',array('size'=>10,'maxlength'=>10)); ?>
-		<?php echo $form->error($model,'postcode'); ?>
-	</div>
+		<?php echo $form->textFieldGroup($model,'city',array('size'=>60,'maxlength'=>100)); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'city'); ?>
-		<?php echo $form->textField($model,'city',array('size'=>60,'maxlength'=>100)); ?>
-		<?php echo $form->error($model,'city'); ?>
-	</div>
+		<?php echo $form->dropDownListGroup(
+		$model,
+		'state_id', 
+		array(
+			'wrapperHtmlOptions' => array(
+				'class' => 'col-sm-6',
+			),
+			'widgetOptions'=>array(
+				'data'=>$states,
+			),
+		)); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'state_id'); ?>
-		<?php echo $form->dropDownList($model,'state_id', $states, array('empty'=>'-- Choose --')); ?>
-		<?php echo $form->error($model,'state_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'is_active'); ?>
-		<?php echo $form->checkBox($model,'is_active'); ?>
-		<?php echo $form->error($model,'is_active'); ?>
-	</div>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
-	</div>
-
+		<?php echo $form->checkBoxGroup($model,'is_active'); ?>
+		<div class="form-group">
+			<div class="col-sm-offset-3 col-sm-9">
+				<?php $this->widget(
+					'booster.widgets.TbButton',
+					array(
+						'buttonType' => 'submit',
+						'context' => 'primary',
+						'label' => $model->isNewRecord ? 'Create' : 'Save'
+					)
+				); ?>
+				<?php $this->widget(
+					'booster.widgets.TbButton',
+					array('buttonType' => 'reset', 'label' => 'Reset')
+				); ?>
+			</div>
+		</div>
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->

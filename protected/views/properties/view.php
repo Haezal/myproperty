@@ -1,4 +1,15 @@
 <?php
+Yii::app()->clientScript->registerScriptFile(
+    Yii::app()->baseUrl.'/js/slider.js'
+);
+Yii::app()->clientScript->registerScriptFile(
+    Yii::app()->baseUrl.'/js/jquery.flexslider-min.js'
+);
+Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/js/flexslider.css');
+
+$baseUrl = Yii::app()->request->baseUrl;
+?>
+<?php
 /* @var $this PropertiesController */
 /* @var $model Properties */
 
@@ -12,7 +23,7 @@ $this->menu=array(
 	array('label'=>'Create Properties', 'url'=>array('create')),
 	array('label'=>'Update Properties', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Delete Properties', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Properties', 'url'=>array('admin')),
+	array('label'=>'Manage Properties', 'url'=>array('admin'), 'visible'=>Yii::app()->user->isAdmin()),
     array('label'=>'Manage Tenant', 'url'=>array('/propertyTenants/index', 'id'=>$model->id), 'visible'=>($model->property_status_id==1)),
     array('label'=>'Manage Bill','url'=>array('/bills/index','id'=>$model->id)),
 );
@@ -43,3 +54,27 @@ $this->menu=array(
         ),
 	),
 )); ?>
+<div class="col-md-8">
+	<?php if(isset($images)){?>
+	<h1>Galeri gambar</h1>
+	<div id="slider" class="flexslider">
+	  <ul class="slides">   
+		<?php foreach ($images as $img) : ?>
+		 <li>
+			<?php echo $img['content']; ?>
+		 </li>
+		<?php endforeach; ?>
+	  </ul>
+	</div>
+
+	<div id="carousel" class="flexslider">
+	  <ul class="slides">   
+		<?php foreach ($images as $img) : ?>
+		 <li>
+			<?php echo $img['thumb']; ?>
+		 </li>
+		<?php endforeach; ?>
+	  </ul>
+	</div>
+	<?php } ?>
+</div>

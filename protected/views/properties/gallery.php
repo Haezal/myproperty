@@ -15,4 +15,4 @@ $this->breadcrumbs=array(
 
 <?php $this->renderPartial('/site/gallery', array('gallery'=>$gallery)); ?>
 
-<?php echo CHtml::link('Selesai', array('arkib'), array('class'=>'btn btn-primary'));?>
+<?php echo CHtml::link('Selesai', array('/properties'), array('class'=>'btn btn-primary'));?>
