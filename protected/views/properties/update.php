@@ -18,4 +18,11 @@ $this->menu=array(
 
 <h1>Update Properties <?php echo $model->id; ?></h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_form', array(
+    'model'=>$model,
+    'propertyTypes'=>$propertyTypes,
+    'propertyStatuses'=>$propertyStatuses,
+    'states'=>$states,
+    'users'=>$users,
+)); ?>
+<?php $this->renderPartial('/site/gallery', array('gallery'=>$model->gallery)); ?>

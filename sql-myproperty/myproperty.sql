@@ -1,5 +1,5 @@
 /*
-SQLyog Community v12.0 (64 bit)
+SQLyog Community v11.52 (64 bit)
 MySQL - 5.6.16 : Database - myproperty
 *********************************************************************
 */
@@ -12,10 +12,6 @@ MySQL - 5.6.16 : Database - myproperty
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`myproperty` /*!40100 DEFAULT CHARACTER SET latin1 */;
-
-USE `myproperty`;
-
 /*Table structure for table `bill_types` */
 
 DROP TABLE IF EXISTS `bill_types`;
@@ -55,8 +51,6 @@ CREATE TABLE `bills` (
 
 /*Data for the table `bills` */
 
-insert  into `bills`(`id`,`property_id`,`bill_type_id`,`account_no`,`old_account_no`,`collateral`,`is_active`,`created`,`created_by`,`modified`,`modified_by`) values (1,5,1,'01810010175702',NULL,'300.00',1,NULL,'sistem',NULL,'sistem'),(2,5,2,'4000209866011',NULL,'100.00',1,NULL,'sistem',NULL,'sistem'),(3,5,5,'56131428',NULL,'0.00',1,NULL,'sistem',NULL,'sistem'),(4,5,3,'0901888140',NULL,'0.00',1,NULL,'sistem',NULL,'sistem'),(5,5,4,'197884','41T0300A035-0197884','0.00',1,NULL,'sistem',NULL,'sistem');
-
 /*Table structure for table `gallery` */
 
 DROP TABLE IF EXISTS `gallery`;
@@ -67,11 +61,11 @@ CREATE TABLE `gallery` (
   `name` tinyint(1) NOT NULL DEFAULT '1',
   `description` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Data for the table `gallery` */
 
-insert  into `gallery`(`id`,`versions_data`,`name`,`description`) values (1,'a:2:{s:5:\"small\";a:1:{s:6:\"resize\";a:2:{i:0;i:200;i:1;N;}}s:6:\"medium\";a:1:{s:6:\"resize\";a:2:{i:0;i:800;i:1;N;}}}',1,1);
+insert  into `gallery`(`id`,`versions_data`,`name`,`description`) values (1,'a:2:{s:5:\"small\";a:1:{s:6:\"resize\";a:2:{i:0;i:200;i:1;N;}}s:6:\"medium\";a:1:{s:6:\"resize\";a:2:{i:0;i:800;i:1;N;}}}',1,1),(2,'a:2:{s:5:\"small\";a:1:{s:6:\"resize\";a:2:{i:0;i:200;i:1;N;}}s:6:\"medium\";a:1:{s:6:\"resize\";a:2:{i:0;i:800;i:1;N;}}}',1,1),(3,'a:2:{s:5:\"small\";a:1:{s:6:\"resize\";a:2:{i:0;i:200;i:1;N;}}s:6:\"medium\";a:1:{s:6:\"resize\";a:2:{i:0;i:800;i:1;N;}}}',1,1);
 
 /*Table structure for table `gallery_photo` */
 
@@ -89,11 +83,11 @@ CREATE TABLE `gallery_photo` (
   PRIMARY KEY (`id`),
   KEY `fk_gallery_photo_gallery1` (`gallery_id`),
   CONSTRAINT `fk_gallery_photo_gallery1` FOREIGN KEY (`gallery_id`) REFERENCES `gallery` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 /*Data for the table `gallery_photo` */
 
-insert  into `gallery_photo`(`id`,`gallery_id`,`rank`,`name`,`description`,`file_name`,`link`,`preview`) values (5,1,5,'profile','testljasdf','testtest.jpg',NULL,NULL),(7,1,7,'asdfdsasdfsdf','safsdsdfdsdfdfsf','landscape-wallpaper-fengjingbizhi-allimg-upimg-green-23156.jpg',NULL,NULL),(9,1,9,'asdfsdasfasf','fsadfasdfsdf','IMG_1413.JPG',NULL,NULL),(10,1,10,'',NULL,'IMG_1415.JPG',NULL,NULL),(11,1,11,'',NULL,'IMG_1414.JPG',NULL,NULL);
+insert  into `gallery_photo`(`id`,`gallery_id`,`rank`,`name`,`description`,`file_name`,`link`,`preview`) values (5,1,5,'profile','testljasdf','testtest.jpg',NULL,NULL),(7,1,7,'asdfdsasdfsdf','safsdsdfdsdfdfsf','landscape-wallpaper-fengjingbizhi-allimg-upimg-green-23156.jpg',NULL,NULL),(9,1,9,'asdfsdasfasf','fsadfasdfsdf','IMG_1413.JPG',NULL,NULL),(10,1,10,'',NULL,'IMG_1415.JPG',NULL,NULL),(11,1,11,'',NULL,'IMG_1414.JPG',NULL,NULL),(19,2,19,'','','wallpaper.jpg',NULL,NULL),(20,3,20,'','','00010996-whte.png',NULL,NULL);
 
 /*Table structure for table `months` */
 
@@ -188,8 +182,6 @@ CREATE TABLE `pay_bills` (
 
 /*Data for the table `pay_bills` */
 
-insert  into `pay_bills`(`id`,`bill_id`,`month_id`,`year`,`bill_date`,`from_date`,`end_date`,`amount_due`,`is_pay`,`pay_list_id`,`payment_date`,`is_active`,`created`,`modified`,`created_by`,`modified_by`) values (1,4,11,2013,'2013-11-14','2013-11-13','2013-12-13','109.65',1,2,'2013-12-14',1,NULL,NULL,'sistem','sistem');
-
 /*Table structure for table `pay_lists` */
 
 DROP TABLE IF EXISTS `pay_lists`;
@@ -235,11 +227,11 @@ CREATE TABLE `properties` (
   CONSTRAINT `fk_properties_property_type_id` FOREIGN KEY (`property_type_id`) REFERENCES `property_types` (`id`),
   CONSTRAINT `fk_properties_state_id` FOREIGN KEY (`state_id`) REFERENCES `states` (`id`),
   CONSTRAINT `fk_properties_user_id` FOREIGN KEY (`user_id`) REFERENCES `tbl_users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 /*Data for the table `properties` */
 
-insert  into `properties`(`id`,`user_id`,`property_type_id`,`property_status_id`,`address`,`address_more`,`postcode`,`city`,`state_id`,`is_active`,`created_by`,`created`,`modified_by`,`modified`,`gallery_id`) values (4,2,2,1,'Block D-10-12A, Apartment Taman Medan Jaya','No 2A, Jalan PJS 2/1','46000','Petaling Jaya',12,1,'sistem',NULL,'sistem',NULL,NULL),(5,2,4,2,'No 6, Jalan Bukit Emas 2b','Taman Bukit Emas','43300','Seri Kembangan',12,1,'sistem',NULL,'sistem',NULL,NULL),(6,2,1,1,'asdfsdf','asdfsdf','2423','asdfsd',1,1,'sistem',NULL,'sistem',NULL,NULL),(7,2,1,1,'asdfsdf','asdfsdf','2423','asdfsd',1,1,'sistem',NULL,'sistem',NULL,1);
+insert  into `properties`(`id`,`user_id`,`property_type_id`,`property_status_id`,`address`,`address_more`,`postcode`,`city`,`state_id`,`is_active`,`created_by`,`created`,`modified_by`,`modified`,`gallery_id`) values (14,2,2,1,'Block D-10-12A, Apartment Taman Medan Jaya,','No 2A, Jalan PJS2/1','46000','Petaling Jaya',12,1,'sistem',NULL,'sistem',NULL,3);
 
 /*Table structure for table `property_statuses` */
 
@@ -290,8 +282,6 @@ CREATE TABLE `property_tenants` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Data for the table `property_tenants` */
-
-insert  into `property_tenants`(`id`,`property_id`,`first_name`,`last_name`,`address`,`address_more`,`postcode`,`city`,`state_id`,`phone_no`,`more_phone_no`,`tenancy_status_id`,`move_in_date`,`move_out_date`,`deposit`,`is_active`,`created_by`,`created`,`modified_by`,`modified`) values (1,4,'Khairi','Mohd','','','','',NULL,'0187904723','0173603537',1,'2014-06-01',NULL,'0.00',1,'sistem',NULL,'sistem',NULL);
 
 /*Table structure for table `property_types` */
 
@@ -403,7 +393,7 @@ CREATE TABLE `tbl_users` (
 
 /*Data for the table `tbl_users` */
 
-insert  into `tbl_users`(`id`,`username`,`password`,`email`,`activkey`,`superuser`,`status`,`create_at`,`lastvisit_at`) values (1,'admin','5f4dcc3b5aa765d61d8327deb882cf99','admin@myproperty.com','27921dfba42c627fb39e858cdb31c1ff',1,1,'2014-08-10 01:51:22','2014-08-12 17:38:24'),(2,'haezal','5716f55419a25cef848511791a483b21','ezalepy@gmail.com','98751617ce1f2877a182a18ea19ad276',0,1,'2014-08-12 17:36:04','2014-08-14 18:33:11');
+insert  into `tbl_users`(`id`,`username`,`password`,`email`,`activkey`,`superuser`,`status`,`create_at`,`lastvisit_at`) values (1,'admin','5f4dcc3b5aa765d61d8327deb882cf99','admin@myproperty.com','27921dfba42c627fb39e858cdb31c1ff',1,1,'2014-08-10 01:51:22','2014-08-15 04:56:58'),(2,'haezal','5716f55419a25cef848511791a483b21','ezalepy@gmail.com','98751617ce1f2877a182a18ea19ad276',0,1,'2014-08-12 17:36:04','2014-08-15 04:57:19');
 
 /*Table structure for table `tenancy_statuses` */
 

@@ -59,8 +59,8 @@ class PropertiesController extends Controller
 		// get gallery photo to view
 		$gallery = GalleryPhoto::model()->findAllByAttributes(array('gallery_id'=>$model->gallery_id));
 
+        $images = null;
 		if($gallery){
-            $images = null;
             foreach($gallery as $v) {
                 $images[$v->id]['id'] = $v->id;
                 $images[$v->id]['caption'] = $v->description;
@@ -115,10 +115,10 @@ class PropertiesController extends Controller
 		}
 
 		// get dropdown value
-		$propertyTypes=array_merge(array(''=>'- Please Choose -'), CHtml::listData(PropertyTypes::model()->findAll(), 'id', 'name'));
-        $propertyStatuses=array_merge(array(''=>'- Please Choose -'), CHtml::listData(PropertyStatuses::model()->findAll(), 'id', 'name'));
-        $states=array_merge(array(''=>'- Please Choose -'), CHtml::listData(States::model()->findAll(), 'id', 'name'));
-        $users=array_merge(array(''=>'- Please Choose -'), CHtml::listData(User::model()->findAll(), 'id', 'username'));
+		$propertyTypes=CHtml::listData(PropertyTypes::model()->findAll(), 'id', 'name');
+        $propertyStatuses=CHtml::listData(PropertyStatuses::model()->findAll(), 'id', 'name');
+        $states=CHtml::listData(States::model()->findAll(), 'id', 'name');
+        $users=CHtml::listData(User::model()->findAll(), 'id', 'username');
 
 		$this->render('create',array(
 			'model'=>$model,
@@ -145,7 +145,10 @@ class PropertiesController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-
+		$gallery=$model->gallery;
+		if(!$gallery){
+			$gallery=new Gallery;
+		}
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
@@ -155,9 +158,19 @@ class PropertiesController extends Controller
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
+		// get dropdown value
+		$propertyTypes=CHtml::listData(PropertyTypes::model()->findAll(), 'id', 'name');
+        $propertyStatuses=CHtml::listData(PropertyStatuses::model()->findAll(), 'id', 'name');
+        $states=CHtml::listData(States::model()->findAll(), 'id', 'name');
+        $users=CHtml::listData(User::model()->findAll(), 'id', 'username');
 
 		$this->render('update',array(
 			'model'=>$model,
+            'propertyTypes'=>$propertyTypes,
+            'propertyStatuses'=>$propertyStatuses,
+            'states'=>$states,
+            'users'=>$users,
+            'gallery'=>$gallery,
 		));
 	}
 
