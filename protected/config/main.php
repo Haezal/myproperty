@@ -87,7 +87,7 @@ return array(
 			'connectionString' => 'mysql:host=localhost;dbname=myproperty',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => '',
+			'password' => 'password',
 			'charset' => 'utf8',
 			'tablePrefix' => 'tbl_',
 		),
