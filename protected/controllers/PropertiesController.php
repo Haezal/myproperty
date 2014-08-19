@@ -170,7 +170,7 @@ class PropertiesController extends Controller
             'propertyStatuses'=>$propertyStatuses,
             'states'=>$states,
             'users'=>$users,
-            'gallery'=>$gallery,
+            'gallery'=>$gallery, // test je
 		));
 	}
 
