@@ -56,7 +56,7 @@ $this->menu=array(
 )); ?>
 <div class="col-md-12">
 	<?php if(isset($images)){?>
-	<h1>Galeri gambar</h1>
+	<h3>Gallery</h3>
 	<div id="carousel" class="flexslider">
 	  <ul class="slides">   
 		<?php foreach ($images as $img) : ?>
