@@ -35,6 +35,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `bills` WRITE;
 /*!40000 ALTER TABLE `bills` DISABLE KEYS */;
+INSERT INTO `bills` (`id`, `property_id`, `bill_type_id`, `account_no`, `old_account_no`, `collateral`, `is_active`, `created`, `created_by`, `modified`, `modified_by`) VALUES (6,15,3,'234234324','234234',0.00,1,NULL,'sistem',NULL,'sistem');
 /*!40000 ALTER TABLE `bills` ENABLE KEYS */;
 UNLOCK TABLES;
 
