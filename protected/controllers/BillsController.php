@@ -72,7 +72,7 @@ class BillsController extends Controller
 			$model->attributes=$_POST['Bills'];
             $model->property_id=$property_id;
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('index'));
 		}
 
 		$this->render('create',array(
@@ -96,7 +96,7 @@ class BillsController extends Controller
 		{
 			$model->attributes=$_POST['Bills'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('index'));
 		}
 
 		$this->render('update',array(

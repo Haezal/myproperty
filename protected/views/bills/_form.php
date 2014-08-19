@@ -6,8 +6,9 @@
 
 <div class="form">
 
-<?php $form=$this->beginWidget('CActiveForm', array(
+<?php $form=$this->beginWidget('booster.widgets.TbActiveForm', array(
 	'id'=>'bills-form',
+	'type'=>'horizontal',
 	// Please note: When you enable ajax validation, make sure the corresponding
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
@@ -19,39 +20,31 @@
 
 	<?php echo $form->errorSummary($model); ?>
     
-	<div class="row">
-		<?php echo $form->labelEx($model,'bill_type_id'); ?>
-		<?php echo $form->dropDownList($model,'bill_type_id', CHtml::listData(BillTypes::model()->findAll(), 'id', 'name'), array('empty'=>'- Choose -')); ?>
-		<?php echo $form->error($model,'bill_type_id'); ?>
-	</div>
+		<?php echo $form->dropDownListGroup($model, 'bill_type_id', array(
+			'wrapperHtmlOptions'=>array('class'=>'col-md-4'),
+			'widgetOptions'=>array('data'=>CHtml::listData(BillTypes::model()->findAll(), 'id', 'name')),
+		)); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'account_no'); ?>
-		<?php echo $form->textField($model,'account_no',array('size'=>20,'maxlength'=>50)); ?>
-		<?php echo $form->error($model,'account_no'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'old_account_no'); ?>
-		<?php echo $form->textField($model,'old_account_no',array('size'=>20,'maxlength'=>50)); ?>
-		<?php echo $form->error($model,'old_account_no'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'collateral'); ?>
-		<?php echo $form->textField($model,'collateral',array('size'=>11,'maxlength'=>11)); ?>
-		<?php echo $form->error($model,'collateral'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'is_active'); ?>
-		<?php echo $form->checkBox($model,'is_active'); ?>
-		<?php echo $form->error($model,'is_active'); ?>
-	</div>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
-	</div>
+		<?php echo $form->textFieldGroup($model,'account_no',array('wrapperHtmlOptions'=>array('class'=>'col-md-5'),'maxlength'=>50)); ?>
+		<?php echo $form->textFieldGroup($model,'old_account_no',array('wrapperHtmlOptions'=>array('class'=>'col-md-5'),'maxlength'=>50)); ?>
+		<?php echo $form->textFieldGroup($model,'collateral',array('wrapperHtmlOptions'=>array('class'=>'col-md-2'),'maxlength'=>11, 'prepend'=>'RM')); ?>
+		<?php echo $form->checkBoxGroup($model,'is_active'); ?>
+		<div class="form-group">
+			<div class="col-sm-offset-3 col-sm-9">
+				<?php $this->widget(
+					'booster.widgets.TbButton',
+					array(
+						'buttonType' => 'submit',
+						'context' => 'primary',
+						'label' => $model->isNewRecord ? 'Create' : 'Save'
+					)
+				); ?>
+				<?php $this->widget(
+					'booster.widgets.TbButton',
+					array('buttonType' => 'reset', 'label' => 'Reset')
+				); ?>
+			</div>
+		</div>
 
 <?php $this->endWidget(); ?>
 

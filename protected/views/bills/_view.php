@@ -40,7 +40,7 @@
 
 	*/ ?>
     <div style="float:right;">
-        <?php echo CHtml::link('View more &raquo;', array('view', 'id'=>$data->id)); ?>
+        <?php echo CHtml::link('View more &raquo;', array('view', 'id'=>$data->id), array('class'=>'btn btn-xs btn-primary')); ?>
     </div>
     <div class="clearfix"></div>
 </div>

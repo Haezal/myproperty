@@ -66,7 +66,7 @@ $this->menu=array(
 		<?php endforeach; ?>
 	  </ul>
 	</div>
-	<div id="slider" class="flexslider">
+	<!-- <div id="slider" class="flexslider">
 	  <ul class="slides">   
 		<?php foreach ($images as $img) : ?>
 		 <li>
@@ -74,6 +74,6 @@ $this->menu=array(
 		 </li>
 		<?php endforeach; ?>
 	  </ul>
-	</div>
+	</div> -->
 	<?php } ?>
 </div>
