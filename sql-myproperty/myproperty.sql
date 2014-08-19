@@ -1,35 +1,51 @@
-/*
-SQLyog Community v11.52 (64 bit)
-MySQL - 5.6.16 : Database - myproperty
-*********************************************************************
-*/
+-- MySQL dump 10.13  Distrib 5.5.38, for debian-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: myproperty
+-- ------------------------------------------------------
+-- Server version	5.5.38-0ubuntu0.14.04.1
 
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
-
-/*!40101 SET SQL_MODE=''*/;
-
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-/*Table structure for table `bill_types` */
+
+--
+-- Table structure for table `bill_types`
+--
 
 DROP TABLE IF EXISTS `bill_types`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `bill_types` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `bill_types` */
+--
+-- Dumping data for table `bill_types`
+--
 
-insert  into `bill_types`(`id`,`name`) values (1,'TNB'),(2,'Syabas'),(3,'Astro'),(4,'Cukai Taksiran'),(5,'Indah Water');
+LOCK TABLES `bill_types` WRITE;
+/*!40000 ALTER TABLE `bill_types` DISABLE KEYS */;
+INSERT INTO `bill_types` VALUES (1,'TNB'),(2,'Syabas'),(3,'Astro'),(4,'Cukai Taksiran'),(5,'Indah Water');
+/*!40000 ALTER TABLE `bill_types` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `bills` */
+--
+-- Table structure for table `bills`
+--
 
 DROP TABLE IF EXISTS `bills`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `bills` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `property_id` int(11) NOT NULL,
@@ -47,30 +63,51 @@ CREATE TABLE `bills` (
   KEY `fk_bill_type_id` (`bill_type_id`),
   CONSTRAINT `fk_bill_property_type_id` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_bill_type_id` FOREIGN KEY (`bill_type_id`) REFERENCES `bill_types` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `bills` */
+--
+-- Dumping data for table `bills`
+--
 
-/*Table structure for table `gallery` */
+LOCK TABLES `bills` WRITE;
+/*!40000 ALTER TABLE `bills` DISABLE KEYS */;
+/*!40000 ALTER TABLE `bills` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `gallery`
+--
 
 DROP TABLE IF EXISTS `gallery`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gallery` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `versions_data` text NOT NULL,
   `name` tinyint(1) NOT NULL DEFAULT '1',
   `description` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `gallery` */
+--
+-- Dumping data for table `gallery`
+--
 
-insert  into `gallery`(`id`,`versions_data`,`name`,`description`) values (1,'a:2:{s:5:\"small\";a:1:{s:6:\"resize\";a:2:{i:0;i:200;i:1;N;}}s:6:\"medium\";a:1:{s:6:\"resize\";a:2:{i:0;i:800;i:1;N;}}}',1,1),(2,'a:2:{s:5:\"small\";a:1:{s:6:\"resize\";a:2:{i:0;i:200;i:1;N;}}s:6:\"medium\";a:1:{s:6:\"resize\";a:2:{i:0;i:800;i:1;N;}}}',1,1),(3,'a:2:{s:5:\"small\";a:1:{s:6:\"resize\";a:2:{i:0;i:200;i:1;N;}}s:6:\"medium\";a:1:{s:6:\"resize\";a:2:{i:0;i:800;i:1;N;}}}',1,1);
+LOCK TABLES `gallery` WRITE;
+/*!40000 ALTER TABLE `gallery` DISABLE KEYS */;
+INSERT INTO `gallery` VALUES (1,'a:2:{s:5:\"small\";a:1:{s:6:\"resize\";a:2:{i:0;i:200;i:1;N;}}s:6:\"medium\";a:1:{s:6:\"resize\";a:2:{i:0;i:800;i:1;N;}}}',1,1),(2,'a:2:{s:5:\"small\";a:1:{s:6:\"resize\";a:2:{i:0;i:200;i:1;N;}}s:6:\"medium\";a:1:{s:6:\"resize\";a:2:{i:0;i:800;i:1;N;}}}',1,1),(3,'a:2:{s:5:\"small\";a:1:{s:6:\"resize\";a:2:{i:0;i:200;i:1;N;}}s:6:\"medium\";a:1:{s:6:\"resize\";a:2:{i:0;i:800;i:1;N;}}}',1,1);
+/*!40000 ALTER TABLE `gallery` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `gallery_photo` */
+--
+-- Table structure for table `gallery_photo`
+--
 
 DROP TABLE IF EXISTS `gallery_photo`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gallery_photo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `gallery_id` int(11) NOT NULL,
@@ -83,30 +120,50 @@ CREATE TABLE `gallery_photo` (
   PRIMARY KEY (`id`),
   KEY `fk_gallery_photo_gallery1` (`gallery_id`),
   CONSTRAINT `fk_gallery_photo_gallery1` FOREIGN KEY (`gallery_id`) REFERENCES `gallery` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `gallery_photo` */
+--
+-- Dumping data for table `gallery_photo`
+--
 
-insert  into `gallery_photo`(`id`,`gallery_id`,`rank`,`name`,`description`,`file_name`,`link`,`preview`) values (5,1,5,'profile','testljasdf','testtest.jpg',NULL,NULL),(7,1,7,'asdfdsasdfsdf','safsdsdfdsdfdfsf','landscape-wallpaper-fengjingbizhi-allimg-upimg-green-23156.jpg',NULL,NULL),(9,1,9,'asdfsdasfasf','fsadfasdfsdf','IMG_1413.JPG',NULL,NULL),(10,1,10,'',NULL,'IMG_1415.JPG',NULL,NULL),(11,1,11,'',NULL,'IMG_1414.JPG',NULL,NULL),(19,2,19,'','','wallpaper.jpg',NULL,NULL),(20,3,20,'','','00010996-whte.png',NULL,NULL);
+LOCK TABLES `gallery_photo` WRITE;
+/*!40000 ALTER TABLE `gallery_photo` DISABLE KEYS */;
+INSERT INTO `gallery_photo` VALUES (5,1,5,'profile','testljasdf','testtest.jpg',NULL,NULL),(7,1,7,'asdfdsasdfsdf','safsdsdfdsdfdfsf','landscape-wallpaper-fengjingbizhi-allimg-upimg-green-23156.jpg',NULL,NULL),(9,1,9,'asdfsdasfasf','fsadfasdfsdf','IMG_1413.JPG',NULL,NULL),(10,1,10,'',NULL,'IMG_1415.JPG',NULL,NULL),(11,1,11,'',NULL,'IMG_1414.JPG',NULL,NULL),(19,2,19,'','','wallpaper.jpg',NULL,NULL),(20,3,20,'','','00010996-whte.png',NULL,NULL);
+/*!40000 ALTER TABLE `gallery_photo` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `months` */
+--
+-- Table structure for table `months`
+--
 
 DROP TABLE IF EXISTS `months`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `months` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `months` */
+--
+-- Dumping data for table `months`
+--
 
-insert  into `months`(`id`,`name`) values (1,'January'),(2,'February'),(3,'March'),(4,'April'),(5,'May'),(6,'June'),(7,'July'),(8,'August'),(9,'September'),(10,'October'),(11,'November'),(12,'December');
+LOCK TABLES `months` WRITE;
+/*!40000 ALTER TABLE `months` DISABLE KEYS */;
+INSERT INTO `months` VALUES (1,'January'),(2,'February'),(3,'March'),(4,'April'),(5,'May'),(6,'June'),(7,'July'),(8,'August'),(9,'September'),(10,'October'),(11,'November'),(12,'December');
+/*!40000 ALTER TABLE `months` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `montly_installment_files` */
+--
+-- Table structure for table `montly_installment_files`
+--
 
 DROP TABLE IF EXISTS `montly_installment_files`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `montly_installment_files` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `montly_installment_id` int(11) DEFAULT NULL,
@@ -121,13 +178,24 @@ CREATE TABLE `montly_installment_files` (
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `montly_installment_files` */
+--
+-- Dumping data for table `montly_installment_files`
+--
 
-/*Table structure for table `montly_installments` */
+LOCK TABLES `montly_installment_files` WRITE;
+/*!40000 ALTER TABLE `montly_installment_files` DISABLE KEYS */;
+/*!40000 ALTER TABLE `montly_installment_files` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `montly_installments`
+--
 
 DROP TABLE IF EXISTS `montly_installments`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `montly_installments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `property_tenant_id` int(11) DEFAULT NULL,
@@ -147,13 +215,24 @@ CREATE TABLE `montly_installments` (
   CONSTRAINT `fk_monthly_rental_pay_list_id` FOREIGN KEY (`pay_list_id`) REFERENCES `pay_lists` (`id`),
   CONSTRAINT `fk_monthly_rental_property_tenant_id` FOREIGN KEY (`property_tenant_id`) REFERENCES `property_tenants` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `montly_installments` */
+--
+-- Dumping data for table `montly_installments`
+--
 
-/*Table structure for table `pay_bills` */
+LOCK TABLES `montly_installments` WRITE;
+/*!40000 ALTER TABLE `montly_installments` DISABLE KEYS */;
+/*!40000 ALTER TABLE `montly_installments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pay_bills`
+--
 
 DROP TABLE IF EXISTS `pay_bills`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pay_bills` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `bill_id` int(11) DEFAULT NULL,
@@ -178,28 +257,49 @@ CREATE TABLE `pay_bills` (
   CONSTRAINT `fk_pay_bill_id` FOREIGN KEY (`bill_id`) REFERENCES `bills` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_pay_bill_month_id` FOREIGN KEY (`month_id`) REFERENCES `months` (`id`),
   CONSTRAINT `fk_pay_bill_pay_list_id` FOREIGN KEY (`pay_list_id`) REFERENCES `pay_lists` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `pay_bills` */
+--
+-- Dumping data for table `pay_bills`
+--
 
-/*Table structure for table `pay_lists` */
+LOCK TABLES `pay_bills` WRITE;
+/*!40000 ALTER TABLE `pay_bills` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pay_bills` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pay_lists`
+--
 
 DROP TABLE IF EXISTS `pay_lists`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pay_lists` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `pay_lists` */
+--
+-- Dumping data for table `pay_lists`
+--
 
-insert  into `pay_lists`(`id`,`name`) values (1,'Maybank2u'),(2,'Cimbclicks'),(3,'Counter');
+LOCK TABLES `pay_lists` WRITE;
+/*!40000 ALTER TABLE `pay_lists` DISABLE KEYS */;
+INSERT INTO `pay_lists` VALUES (1,'Maybank2u'),(2,'Cimbclicks'),(3,'Counter');
+/*!40000 ALTER TABLE `pay_lists` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `properties` */
+--
+-- Table structure for table `properties`
+--
 
 DROP TABLE IF EXISTS `properties`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `properties` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
@@ -227,30 +327,49 @@ CREATE TABLE `properties` (
   CONSTRAINT `fk_properties_property_type_id` FOREIGN KEY (`property_type_id`) REFERENCES `property_types` (`id`),
   CONSTRAINT `fk_properties_state_id` FOREIGN KEY (`state_id`) REFERENCES `states` (`id`),
   CONSTRAINT `fk_properties_user_id` FOREIGN KEY (`user_id`) REFERENCES `tbl_users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `properties` */
+--
+-- Dumping data for table `properties`
+--
 
-insert  into `properties`(`id`,`user_id`,`property_type_id`,`property_status_id`,`address`,`address_more`,`postcode`,`city`,`state_id`,`is_active`,`created_by`,`created`,`modified_by`,`modified`,`gallery_id`) values (14,2,2,1,'Block D-10-12A, Apartment Taman Medan Jaya,','No 2A, Jalan PJS2/1','46000','Petaling Jaya',12,1,'sistem',NULL,'sistem',NULL,3);
+LOCK TABLES `properties` WRITE;
+/*!40000 ALTER TABLE `properties` DISABLE KEYS */;
+/*!40000 ALTER TABLE `properties` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `property_statuses` */
+--
+-- Table structure for table `property_statuses`
+--
 
 DROP TABLE IF EXISTS `property_statuses`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `property_statuses` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `property_statuses` */
+--
+-- Dumping data for table `property_statuses`
+--
 
-insert  into `property_statuses`(`id`,`name`) values (1,'Rent'),(2,'Live Here'),(3,'Empty House'),(4,'Sold');
+LOCK TABLES `property_statuses` WRITE;
+/*!40000 ALTER TABLE `property_statuses` DISABLE KEYS */;
+INSERT INTO `property_statuses` VALUES (1,'Rent'),(2,'Live Here'),(3,'Empty House'),(4,'Sold');
+/*!40000 ALTER TABLE `property_statuses` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `property_tenants` */
+--
+-- Table structure for table `property_tenants`
+--
 
 DROP TABLE IF EXISTS `property_tenants`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `property_tenants` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `property_id` int(11) DEFAULT NULL,
@@ -279,28 +398,49 @@ CREATE TABLE `property_tenants` (
   CONSTRAINT `fk_property_state_id` FOREIGN KEY (`state_id`) REFERENCES `states` (`id`),
   CONSTRAINT `fk_property_tenancy_status_id` FOREIGN KEY (`tenancy_status_id`) REFERENCES `tenancy_statuses` (`id`),
   CONSTRAINT `fk_property_tenants_property_id` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `property_tenants` */
+--
+-- Dumping data for table `property_tenants`
+--
 
-/*Table structure for table `property_types` */
+LOCK TABLES `property_tenants` WRITE;
+/*!40000 ALTER TABLE `property_tenants` DISABLE KEYS */;
+/*!40000 ALTER TABLE `property_tenants` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `property_types`
+--
 
 DROP TABLE IF EXISTS `property_types`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `property_types` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `property_types` */
+--
+-- Dumping data for table `property_types`
+--
 
-insert  into `property_types`(`id`,`name`) values (1,'Bungalow / Villa'),(2,'Apartment / Condo / Service Residence'),(3,'Semi-Detached House'),(4,'Terrace / Link House'),(5,'Resindential Land');
+LOCK TABLES `property_types` WRITE;
+/*!40000 ALTER TABLE `property_types` DISABLE KEYS */;
+INSERT INTO `property_types` VALUES (1,'Bungalow / Villa'),(2,'Apartment / Condo / Service Residence'),(3,'Semi-Detached House'),(4,'Terrace / Link House'),(5,'Resindential Land');
+/*!40000 ALTER TABLE `property_types` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `states` */
+--
+-- Table structure for table `states`
+--
 
 DROP TABLE IF EXISTS `states`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `states` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(200) DEFAULT NULL,
@@ -308,46 +448,76 @@ CREATE TABLE `states` (
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `states` */
+--
+-- Dumping data for table `states`
+--
 
-insert  into `states`(`id`,`name`,`is_active`,`created`,`modified`) values (1,'Johor',1,NULL,NULL),(2,'Negeri Sembilan',1,NULL,NULL),(3,'Melaka',1,NULL,NULL),(4,'Kuala Lumpur',1,NULL,NULL),(5,'Perak',1,NULL,NULL),(6,'Kedah',1,NULL,NULL),(7,'Pulau Pinang',1,NULL,NULL),(8,'Perlis',1,NULL,NULL),(9,'Kelantan',1,NULL,NULL),(10,'Terengganu',1,NULL,NULL),(11,'Pahang',1,NULL,NULL),(12,'Selangor',1,NULL,NULL),(13,'Sabah',1,NULL,NULL),(14,'Sarawak',1,NULL,NULL),(15,'Wilayah Persekutuan Kuala Lumpur',1,NULL,NULL),(16,'Wilayah Persekutuan Putrajaya',1,NULL,NULL),(17,'Wilayah Persekutuan Labuan',1,NULL,NULL);
+LOCK TABLES `states` WRITE;
+/*!40000 ALTER TABLE `states` DISABLE KEYS */;
+INSERT INTO `states` VALUES (1,'Johor',1,NULL,NULL),(2,'Negeri Sembilan',1,NULL,NULL),(3,'Melaka',1,NULL,NULL),(4,'Kuala Lumpur',1,NULL,NULL),(5,'Perak',1,NULL,NULL),(6,'Kedah',1,NULL,NULL),(7,'Pulau Pinang',1,NULL,NULL),(8,'Perlis',1,NULL,NULL),(9,'Kelantan',1,NULL,NULL),(10,'Terengganu',1,NULL,NULL),(11,'Pahang',1,NULL,NULL),(12,'Selangor',1,NULL,NULL),(13,'Sabah',1,NULL,NULL),(14,'Sarawak',1,NULL,NULL),(15,'Wilayah Persekutuan Kuala Lumpur',1,NULL,NULL),(16,'Wilayah Persekutuan Putrajaya',1,NULL,NULL),(17,'Wilayah Persekutuan Labuan',1,NULL,NULL);
+/*!40000 ALTER TABLE `states` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `tbl_migration` */
+--
+-- Table structure for table `tbl_migration`
+--
 
 DROP TABLE IF EXISTS `tbl_migration`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tbl_migration` (
   `version` varchar(180) NOT NULL,
   `apply_time` int(11) DEFAULT NULL,
   PRIMARY KEY (`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `tbl_migration` */
+--
+-- Dumping data for table `tbl_migration`
+--
 
-insert  into `tbl_migration`(`version`,`apply_time`) values ('m000000_000000_base',1407606657),('m110805_153437_installYiiUser',1407606682),('m110810_162301_userTimestampFix',1407606687);
+LOCK TABLES `tbl_migration` WRITE;
+/*!40000 ALTER TABLE `tbl_migration` DISABLE KEYS */;
+INSERT INTO `tbl_migration` VALUES ('m000000_000000_base',1407606657),('m110805_153437_installYiiUser',1407606682),('m110810_162301_userTimestampFix',1407606687);
+/*!40000 ALTER TABLE `tbl_migration` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `tbl_profiles` */
+--
+-- Table structure for table `tbl_profiles`
+--
 
 DROP TABLE IF EXISTS `tbl_profiles`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tbl_profiles` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `first_name` varchar(255) DEFAULT NULL,
   `last_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`user_id`),
   CONSTRAINT `user_profile_id` FOREIGN KEY (`user_id`) REFERENCES `tbl_users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `tbl_profiles` */
+--
+-- Dumping data for table `tbl_profiles`
+--
 
-insert  into `tbl_profiles`(`user_id`,`first_name`,`last_name`) values (1,'Administrator','Admin'),(2,'Haezal','Musa');
+LOCK TABLES `tbl_profiles` WRITE;
+/*!40000 ALTER TABLE `tbl_profiles` DISABLE KEYS */;
+INSERT INTO `tbl_profiles` VALUES (1,'Administrator','Admin'),(2,'Haezal','Musa');
+/*!40000 ALTER TABLE `tbl_profiles` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `tbl_profiles_fields` */
+--
+-- Table structure for table `tbl_profiles_fields`
+--
 
 DROP TABLE IF EXISTS `tbl_profiles_fields`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tbl_profiles_fields` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `varname` varchar(50) NOT NULL DEFAULT '',
@@ -366,16 +536,26 @@ CREATE TABLE `tbl_profiles_fields` (
   `position` int(3) NOT NULL DEFAULT '0',
   `visible` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `tbl_profiles_fields` */
+--
+-- Dumping data for table `tbl_profiles_fields`
+--
 
-insert  into `tbl_profiles_fields`(`id`,`varname`,`title`,`field_type`,`field_size`,`field_size_min`,`required`,`match`,`range`,`error_message`,`other_validator`,`default`,`widget`,`widgetparams`,`position`,`visible`) values (1,'first_name','First Name','VARCHAR',255,3,2,'','','Incorrect First Name (length between 3 and 50 characters).','','','','',1,3),(2,'last_name','Last Name','VARCHAR',255,3,2,'','','Incorrect Last Name (length between 3 and 50 characters).','','','','',2,3);
+LOCK TABLES `tbl_profiles_fields` WRITE;
+/*!40000 ALTER TABLE `tbl_profiles_fields` DISABLE KEYS */;
+INSERT INTO `tbl_profiles_fields` VALUES (1,'first_name','First Name','VARCHAR',255,3,2,'','','Incorrect First Name (length between 3 and 50 characters).','','','','',1,3),(2,'last_name','Last Name','VARCHAR',255,3,2,'','','Incorrect Last Name (length between 3 and 50 characters).','','','','',2,3);
+/*!40000 ALTER TABLE `tbl_profiles_fields` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `tbl_users` */
+--
+-- Table structure for table `tbl_users`
+--
 
 DROP TABLE IF EXISTS `tbl_users`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tbl_users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(20) NOT NULL DEFAULT '',
@@ -389,27 +569,50 @@ CREATE TABLE `tbl_users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_username` (`username`),
   UNIQUE KEY `user_email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `tbl_users` */
+--
+-- Dumping data for table `tbl_users`
+--
 
-insert  into `tbl_users`(`id`,`username`,`password`,`email`,`activkey`,`superuser`,`status`,`create_at`,`lastvisit_at`) values (1,'admin','5f4dcc3b5aa765d61d8327deb882cf99','admin@myproperty.com','27921dfba42c627fb39e858cdb31c1ff',1,1,'2014-08-10 01:51:22','2014-08-15 04:56:58'),(2,'haezal','5716f55419a25cef848511791a483b21','ezalepy@gmail.com','98751617ce1f2877a182a18ea19ad276',0,1,'2014-08-12 17:36:04','2014-08-15 04:57:19');
+LOCK TABLES `tbl_users` WRITE;
+/*!40000 ALTER TABLE `tbl_users` DISABLE KEYS */;
+INSERT INTO `tbl_users` VALUES (1,'admin','5f4dcc3b5aa765d61d8327deb882cf99','admin@myproperty.com','27921dfba42c627fb39e858cdb31c1ff',1,1,'2014-08-09 17:51:22','2014-08-14 20:56:58'),(2,'haezal','5716f55419a25cef848511791a483b21','ezalepy@gmail.com','98751617ce1f2877a182a18ea19ad276',0,1,'2014-08-12 09:36:04','2014-08-19 13:10:31');
+/*!40000 ALTER TABLE `tbl_users` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `tenancy_statuses` */
+--
+-- Table structure for table `tenancy_statuses`
+--
 
 DROP TABLE IF EXISTS `tenancy_statuses`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tenancy_statuses` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `tenancy_statuses` */
+--
+-- Dumping data for table `tenancy_statuses`
+--
 
-insert  into `tenancy_statuses`(`id`,`name`) values (1,'Active'),(2,'Move');
+LOCK TABLES `tenancy_statuses` WRITE;
+/*!40000 ALTER TABLE `tenancy_statuses` DISABLE KEYS */;
+INSERT INTO `tenancy_statuses` VALUES (1,'Active'),(2,'Move');
+/*!40000 ALTER TABLE `tenancy_statuses` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2014-08-19 21:36:38
