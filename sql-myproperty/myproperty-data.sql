@@ -47,6 +47,7 @@ LOCK TABLES `gallery` WRITE;
 INSERT INTO `gallery` (`id`, `versions_data`, `name`, `description`) VALUES (1,'a:2:{s:5:\"small\";a:1:{s:6:\"resize\";a:2:{i:0;i:200;i:1;N;}}s:6:\"medium\";a:1:{s:6:\"resize\";a:2:{i:0;i:800;i:1;N;}}}',1,1);
 INSERT INTO `gallery` (`id`, `versions_data`, `name`, `description`) VALUES (2,'a:2:{s:5:\"small\";a:1:{s:6:\"resize\";a:2:{i:0;i:200;i:1;N;}}s:6:\"medium\";a:1:{s:6:\"resize\";a:2:{i:0;i:800;i:1;N;}}}',1,1);
 INSERT INTO `gallery` (`id`, `versions_data`, `name`, `description`) VALUES (3,'a:2:{s:5:\"small\";a:1:{s:6:\"resize\";a:2:{i:0;i:200;i:1;N;}}s:6:\"medium\";a:1:{s:6:\"resize\";a:2:{i:0;i:800;i:1;N;}}}',1,1);
+INSERT INTO `gallery` (`id`, `versions_data`, `name`, `description`) VALUES (4,'a:2:{s:5:\"small\";a:1:{s:6:\"resize\";a:2:{i:0;i:200;i:1;N;}}s:6:\"medium\";a:1:{s:6:\"resize\";a:2:{i:0;i:800;i:1;N;}}}',1,1);
 /*!40000 ALTER TABLE `gallery` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -63,6 +64,7 @@ INSERT INTO `gallery_photo` (`id`, `gallery_id`, `rank`, `name`, `description`, 
 INSERT INTO `gallery_photo` (`id`, `gallery_id`, `rank`, `name`, `description`, `file_name`, `link`, `preview`) VALUES (11,1,11,'',NULL,'IMG_1414.JPG',NULL,NULL);
 INSERT INTO `gallery_photo` (`id`, `gallery_id`, `rank`, `name`, `description`, `file_name`, `link`, `preview`) VALUES (19,2,19,'','','wallpaper.jpg',NULL,NULL);
 INSERT INTO `gallery_photo` (`id`, `gallery_id`, `rank`, `name`, `description`, `file_name`, `link`, `preview`) VALUES (20,3,20,'','','00010996-whte.png',NULL,NULL);
+INSERT INTO `gallery_photo` (`id`, `gallery_id`, `rank`, `name`, `description`, `file_name`, `link`, `preview`) VALUES (23,4,23,'','','fc47f33851303_1_V550.jpg',NULL,NULL);
 /*!40000 ALTER TABLE `gallery_photo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -132,6 +134,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `properties` WRITE;
 /*!40000 ALTER TABLE `properties` DISABLE KEYS */;
+INSERT INTO `properties` (`id`, `user_id`, `property_type_id`, `property_status_id`, `address`, `address_more`, `postcode`, `city`, `state_id`, `is_active`, `created_by`, `created`, `modified_by`, `modified`, `gallery_id`) VALUES (15,2,4,2,'No 6, Jln Bukit Emas 2b','Taman Bukit Emas','43300','Seri Kembangan',12,1,'sistem',NULL,'sistem',NULL,4);
 /*!40000 ALTER TABLE `properties` ENABLE KEYS */;
 UNLOCK TABLES;
 
