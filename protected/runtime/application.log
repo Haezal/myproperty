@@ -2428,3 +2428,78 @@ Stack trace:
 REQUEST_URI=/myproperty/properties/create
 HTTP_REFERER=http://localhost/myproperty/properties/create
 ---
+2014/08/19 21:09:23 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[42000] [1049] Unknown database 'myproperty'' in /var/www/html/yii-read-only/framework/db/CDbConnection.php:399
+Stack trace:
+#0 /var/www/html/yii-read-only/framework/db/CDbConnection.php(347): CDbConnection->open()
+#1 /var/www/html/yii-read-only/framework/db/CDbConnection.php(325): CDbConnection->setActive(true)
+#2 /var/www/html/yii-read-only/framework/base/CModule.php(393): CDbConnection->init()
+#3 /var/www/html/yii-read-only/framework/base/CApplication.php(458): CModule->getComponent('db')
+#4 /var/www/html/yii-read-only/framework/db/ar/CActiveRecord.php(637): CApplication->getDb()
+#5 /var/www/html/yii-read-only/framework/db/ar/CActiveRecord.php(2384): CActiveRecord->getDbConnection()
+#6 /var/www/html/yii-read-only/framework/db/ar/CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(User))
+#7 /var/www/html/yii-read-only/framework/db/ar/CActiveRecord.php(212): CActiveRecord->getMetaData()
+#8 /var/www/html/myproperty/protected/modules/user/components/UserIdentity.php(27): CActiveRecord->__call('notsafe', Array)
+#9 /var/www/html/myproperty/protected/modules/user/components/UserIdentity.php(27): User->notsafe()
+#10 /var/www/html/myproperty/protected/modules/user/models/UserLogin.php(52): UserIdentity->authenticate()
+#11 /var/www/html/yii-read-only/framework/validators/CInlineValidator.php(42): UserLogin->authenticate('password', Array)
+#12 /var/www/html/yii-read-only/framework/validators/CValidator.php(213): CInlineValidator->validateAttribute(Object(UserLogin), 'password')
+#13 /var/www/html/yii-read-only/framework/base/CModel.php(159): CValidator->validate(Object(UserLogin), NULL)
+#14 /var/www/html/myproperty/protected/modules/user/controllers/LoginController.php(19): CModel->validate()
+#15 /var/www/html/yii-read-only/framework/web/actions/CInlineAction.php(49): LoginController->actionLogin()
+#16 /var/www/html/yii-read-only/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#17 /var/www/html/yii-read-only/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#18 /var/www/html/yii-read-only/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): CController->run('')
+#20 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController('user/login')
+#21 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#22 /var/www/html/myproperty/index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/myproperty/user/login
+HTTP_REFERER=http://localhost/myproperty/user/login
+---
+2014/08/19 21:10:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "20small.jpg".' in /var/www/html/yii-read-only/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/html/yii-read-only/framework/web/CController.php(270): CController->missingAction('20small.jpg')
+#1 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): CController->run('20small.jpg')
+#2 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController('gallery/20small...')
+#3 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#4 /var/www/html/myproperty/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/myproperty/gallery/20small.jpg
+HTTP_REFERER=http://localhost/myproperty/properties
+---
+2014/08/19 21:10:37 [error] [exception.CException] exception 'CException' with message 'Image file not found: /var/www/html/myproperty/protected/../gallery/20.jpg' in /var/www/html/myproperty/protected/extensions/EPhpThumb/EPhpThumb.php:59
+Stack trace:
+#0 /var/www/html/myproperty/protected/extensions/EPhpThumb/EPhpThumb.php(44): EPhpThumb::thumbFactory('/var/www/html/m...')
+#1 /var/www/html/myproperty/protected/controllers/SiteController.php(129): EPhpThumb->create('/var/www/html/m...')
+#2 [internal function]: SiteController->actionShowImage('20', '600', '800')
+#3 /var/www/html/yii-read-only/framework/web/actions/CAction.php(109): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 /var/www/html/yii-read-only/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 /var/www/html/yii-read-only/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /var/www/html/yii-read-only/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#7 /var/www/html/yii-read-only/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): CController->run('showImage')
+#9 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController('site/showImage')
+#10 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#11 /var/www/html/myproperty/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/myproperty/site/showImage/20?height=600&width=800
+HTTP_REFERER=http://localhost/myproperty/properties/14
+---
+2014/08/19 21:10:40 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/html/yii-read-only/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/html/yii-read-only/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 /var/www/html/yii-read-only/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/html/yii-read-only/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/html/yii-read-only/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/html/yii-read-only/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/html/yii-read-only/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/html/yii-read-only/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): CController->run('delete')
+#8 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController('properties/dele...')
+#9 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#10 /var/www/html/myproperty/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/myproperty/properties/delete/14
+HTTP_REFERER=http://localhost/myproperty/properties/14
+---

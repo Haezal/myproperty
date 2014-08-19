@@ -37,6 +37,7 @@
 		        'brand' => Yii::app()->name,
 		        'fixed' => 'top',
 		    	'fluid' => true,
+		    	'type'=>'inverse',
 		    	'htmlOptions'=>array('class'=>'container-fluid'),
 		        'items' => array(
 		            array(
