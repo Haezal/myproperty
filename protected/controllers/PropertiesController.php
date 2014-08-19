@@ -184,6 +184,8 @@ class PropertiesController extends Controller
 	{
 		$this->loadModel($id)->delete();
 
+		// Control if user admin, redirect to admin.php else return to index.php
+
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : (Yii::app()->user->isAdmin()) ? array('admin'):array('index'));
