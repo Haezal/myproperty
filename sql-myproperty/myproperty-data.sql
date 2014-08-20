@@ -35,7 +35,10 @@ UNLOCK TABLES;
 
 LOCK TABLES `bills` WRITE;
 /*!40000 ALTER TABLE `bills` DISABLE KEYS */;
-INSERT INTO `bills` (`id`, `property_id`, `bill_type_id`, `account_no`, `old_account_no`, `collateral`, `is_active`, `created`, `created_by`, `modified`, `modified_by`) VALUES (6,15,3,'234234324','234234',0.00,1,NULL,'sistem',NULL,'sistem');
+INSERT INTO `bills` (`id`, `property_id`, `bill_type_id`, `account_no`, `old_account_no`, `collateral`, `is_active`, `created`, `created_by`, `modified`, `modified_by`) VALUES (6,15,3,'090188814-0','',0.00,1,NULL,'sistem',NULL,'sistem');
+INSERT INTO `bills` (`id`, `property_id`, `bill_type_id`, `account_no`, `old_account_no`, `collateral`, `is_active`, `created`, `created_by`, `modified`, `modified_by`) VALUES (7,15,1,'01810010175702','',300.00,1,NULL,'sistem',NULL,'sistem');
+INSERT INTO `bills` (`id`, `property_id`, `bill_type_id`, `account_no`, `old_account_no`, `collateral`, `is_active`, `created`, `created_by`, `modified`, `modified_by`) VALUES (8,15,2,'4000209866011','',100.00,1,NULL,'sistem',NULL,'sistem');
+INSERT INTO `bills` (`id`, `property_id`, `bill_type_id`, `account_no`, `old_account_no`, `collateral`, `is_active`, `created`, `created_by`, `modified`, `modified_by`) VALUES (9,15,5,'56131428','',0.00,1,NULL,'sistem',NULL,'sistem');
 /*!40000 ALTER TABLE `bills` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -49,6 +52,7 @@ INSERT INTO `gallery` (`id`, `versions_data`, `name`, `description`) VALUES (1,'
 INSERT INTO `gallery` (`id`, `versions_data`, `name`, `description`) VALUES (2,'a:2:{s:5:\"small\";a:1:{s:6:\"resize\";a:2:{i:0;i:200;i:1;N;}}s:6:\"medium\";a:1:{s:6:\"resize\";a:2:{i:0;i:800;i:1;N;}}}',1,1);
 INSERT INTO `gallery` (`id`, `versions_data`, `name`, `description`) VALUES (3,'a:2:{s:5:\"small\";a:1:{s:6:\"resize\";a:2:{i:0;i:200;i:1;N;}}s:6:\"medium\";a:1:{s:6:\"resize\";a:2:{i:0;i:800;i:1;N;}}}',1,1);
 INSERT INTO `gallery` (`id`, `versions_data`, `name`, `description`) VALUES (4,'a:2:{s:5:\"small\";a:1:{s:6:\"resize\";a:2:{i:0;i:200;i:1;N;}}s:6:\"medium\";a:1:{s:6:\"resize\";a:2:{i:0;i:800;i:1;N;}}}',1,1);
+INSERT INTO `gallery` (`id`, `versions_data`, `name`, `description`) VALUES (5,'a:2:{s:5:\"small\";a:1:{s:6:\"resize\";a:2:{i:0;i:200;i:1;N;}}s:6:\"medium\";a:1:{s:6:\"resize\";a:2:{i:0;i:800;i:1;N;}}}',1,1);
 /*!40000 ALTER TABLE `gallery` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -66,6 +70,7 @@ INSERT INTO `gallery_photo` (`id`, `gallery_id`, `rank`, `name`, `description`, 
 INSERT INTO `gallery_photo` (`id`, `gallery_id`, `rank`, `name`, `description`, `file_name`, `link`, `preview`) VALUES (19,2,19,'','','wallpaper.jpg',NULL,NULL);
 INSERT INTO `gallery_photo` (`id`, `gallery_id`, `rank`, `name`, `description`, `file_name`, `link`, `preview`) VALUES (20,3,20,'','','00010996-whte.png',NULL,NULL);
 INSERT INTO `gallery_photo` (`id`, `gallery_id`, `rank`, `name`, `description`, `file_name`, `link`, `preview`) VALUES (23,4,23,'','','fc47f33851303_1_V550.jpg',NULL,NULL);
+INSERT INTO `gallery_photo` (`id`, `gallery_id`, `rank`, `name`, `description`, `file_name`, `link`, `preview`) VALUES (24,5,24,'','Dari Depan','97050727b2e347969eb1d85d154fe34c.jpg',NULL,NULL);
 /*!40000 ALTER TABLE `gallery_photo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -136,6 +141,7 @@ UNLOCK TABLES;
 LOCK TABLES `properties` WRITE;
 /*!40000 ALTER TABLE `properties` DISABLE KEYS */;
 INSERT INTO `properties` (`id`, `user_id`, `property_type_id`, `property_status_id`, `address`, `address_more`, `postcode`, `city`, `state_id`, `is_active`, `created_by`, `created`, `modified_by`, `modified`, `gallery_id`) VALUES (15,2,4,2,'No 6, Jln Bukit Emas 2b','Taman Bukit Emas','43300','Seri Kembangan',12,1,'sistem',NULL,'sistem',NULL,4);
+INSERT INTO `properties` (`id`, `user_id`, `property_type_id`, `property_status_id`, `address`, `address_more`, `postcode`, `city`, `state_id`, `is_active`, `created_by`, `created`, `modified_by`, `modified`, `gallery_id`) VALUES (16,2,2,1,'Block D-10-12A, Apartment Taman Medan Jaya','No 2A, Jln PJS 2/1','43300','Petaling Jaya',12,1,'sistem',NULL,'sistem',NULL,5);
 /*!40000 ALTER TABLE `properties` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -158,6 +164,8 @@ UNLOCK TABLES;
 
 LOCK TABLES `property_tenants` WRITE;
 /*!40000 ALTER TABLE `property_tenants` DISABLE KEYS */;
+INSERT INTO `property_tenants` (`id`, `property_id`, `first_name`, `last_name`, `address`, `address_more`, `postcode`, `city`, `state_id`, `phone_no`, `more_phone_no`, `tenancy_status_id`, `move_in_date`, `move_out_date`, `deposit`, `is_active`, `created_by`, `created`, `modified_by`, `modified`) VALUES (1,16,'Khairi','Mohd','','','','',NULL,'','',NULL,'2013-06-01',NULL,0.00,1,'sistem',NULL,'sistem',NULL);
+INSERT INTO `property_tenants` (`id`, `property_id`, `first_name`, `last_name`, `address`, `address_more`, `postcode`, `city`, `state_id`, `phone_no`, `more_phone_no`, `tenancy_status_id`, `move_in_date`, `move_out_date`, `deposit`, `is_active`, `created_by`, `created`, `modified_by`, `modified`) VALUES (2,16,'Penyewa','Baru','','','','',NULL,'+60136343940','',NULL,'2014-01-01',NULL,850.00,1,'sistem',NULL,'sistem',NULL);
 /*!40000 ALTER TABLE `property_tenants` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -242,7 +250,7 @@ UNLOCK TABLES;
 LOCK TABLES `tbl_users` WRITE;
 /*!40000 ALTER TABLE `tbl_users` DISABLE KEYS */;
 INSERT INTO `tbl_users` (`id`, `username`, `password`, `email`, `activkey`, `superuser`, `status`, `create_at`, `lastvisit_at`) VALUES (1,'admin','5f4dcc3b5aa765d61d8327deb882cf99','admin@myproperty.com','27921dfba42c627fb39e858cdb31c1ff',1,1,'2014-08-09 17:51:22','2014-08-14 20:56:58');
-INSERT INTO `tbl_users` (`id`, `username`, `password`, `email`, `activkey`, `superuser`, `status`, `create_at`, `lastvisit_at`) VALUES (2,'haezal','5716f55419a25cef848511791a483b21','ezalepy@gmail.com','98751617ce1f2877a182a18ea19ad276',0,1,'2014-08-12 09:36:04','2014-08-19 13:10:31');
+INSERT INTO `tbl_users` (`id`, `username`, `password`, `email`, `activkey`, `superuser`, `status`, `create_at`, `lastvisit_at`) VALUES (2,'haezal','5716f55419a25cef848511791a483b21','ezalepy@gmail.com','98751617ce1f2877a182a18ea19ad276',0,1,'2014-08-12 09:36:04','2014-08-20 13:04:51');
 /*!40000 ALTER TABLE `tbl_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
