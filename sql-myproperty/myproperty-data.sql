@@ -41,6 +41,9 @@ INSERT INTO `bills` (`id`, `property_id`, `bill_type_id`, `account_no`, `old_acc
 INSERT INTO `bills` (`id`, `property_id`, `bill_type_id`, `account_no`, `old_account_no`, `collateral`, `is_active`, `created`, `created_by`, `modified`, `modified_by`) VALUES (8,15,2,'4000209866011','',100.00,1,NULL,'sistem',NULL,'sistem');
 INSERT INTO `bills` (`id`, `property_id`, `bill_type_id`, `account_no`, `old_account_no`, `collateral`, `is_active`, `created`, `created_by`, `modified`, `modified_by`) VALUES (9,15,5,'56131428','',0.00,1,NULL,'sistem',NULL,'sistem');
 INSERT INTO `bills` (`id`, `property_id`, `bill_type_id`, `account_no`, `old_account_no`, `collateral`, `is_active`, `created`, `created_by`, `modified`, `modified_by`) VALUES (10,15,6,'000','',0.00,1,NULL,'sistem',NULL,'sistem');
+INSERT INTO `bills` (`id`, `property_id`, `bill_type_id`, `account_no`, `old_account_no`, `collateral`, `is_active`, `created`, `created_by`, `modified`, `modified_by`) VALUES (11,16,6,'00','',0.00,1,NULL,'sistem',NULL,'sistem');
+INSERT INTO `bills` (`id`, `property_id`, `bill_type_id`, `account_no`, `old_account_no`, `collateral`, `is_active`, `created`, `created_by`, `modified`, `modified_by`) VALUES (12,16,4,'T00580010002200','',0.00,1,NULL,'sistem',NULL,'sistem');
+INSERT INTO `bills` (`id`, `property_id`, `bill_type_id`, `account_no`, `old_account_no`, `collateral`, `is_active`, `created`, `created_by`, `modified`, `modified_by`) VALUES (13,16,5,'59024133','',0.00,1,NULL,'sistem',NULL,'sistem');
 /*!40000 ALTER TABLE `bills` ENABLE KEYS */;
 UNLOCK TABLES;
 

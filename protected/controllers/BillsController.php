@@ -152,6 +152,7 @@ class BillsController extends Controller
         if (isset($_GET['Bills'])) {
         	$dataProvider->attributes=$_GET['Bills'];
         }
+        $dataProvider->property_id=$id;
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
             'id'=>$id,
