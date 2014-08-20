@@ -17,40 +17,42 @@ $this->breadcrumbs=array(
 
 <p><?php echo UserModule::t("Please fill out the following form with your login credentials:"); ?></p>
 
-<div class="form">
-<?php echo CHtml::beginForm(array('class'=>'form-horizontal')); ?>
+<div class="row">
+	<div class="col-md-4">
+		<?php echo CHtml::beginForm(array('class'=>'form-horizontal')); ?>
 
-	<p class="note"><?php echo UserModule::t('Fields with <span class="required">*</span> are required.'); ?></p>
-	
-	<?php echo CHtml::errorSummary($model); ?>
+			<p class="note"><?php echo UserModule::t('Fields with <span class="required">*</span> are required.'); ?></p>
+			
+			<?php echo CHtml::errorSummary($model); ?>
 
-	<div class="form-group">
-		<?php echo CHtml::activeLabelEx($model,'username', array('class'=>'col-sm-2 control-label')); ?>
-		<?php echo CHtml::activeTextField($model,'username', array('class'=>'form-control')) ?>
+			<div class="form-group">
+				<?php echo CHtml::activeLabelEx($model,'username', array('class'=>'col-sm-5 control-label')); ?>
+				<?php echo CHtml::activeTextField($model,'username', array('class'=>'form-control')) ?>
+			</div>
+			
+			<div class="form-group">
+				<?php echo CHtml::activeLabelEx($model,'password', array('class'=>'col-sm-5 control-label')); ?>
+				<?php echo CHtml::activePasswordField($model,'password', array('class'=>'form-control')) ?>
+			</div>
+			
+			<div class="row">
+				<p class="hint">
+				<?php echo CHtml::link(UserModule::t("Register"),Yii::app()->getModule('user')->registrationUrl); ?> | <?php echo CHtml::link(UserModule::t("Lost Password?"),Yii::app()->getModule('user')->recoveryUrl); ?>
+				</p>
+			</div>
+			
+			<div class="row rememberMe">
+				<?php echo CHtml::activeCheckBox($model,'rememberMe'); ?>
+				<?php echo CHtml::activeLabelEx($model,'rememberMe'); ?>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-12">
+					<?php echo CHtml::submitButton(UserModule::t("Login"), array('class'=>'btn btn-default')); ?>
+				</div>
+			</div>
+			
+		<?php echo CHtml::endForm(); ?>
 	</div>
-	
-	<div class="form-group">
-		<?php echo CHtml::activeLabelEx($model,'password', array('class'=>'col-sm-2 control-label')); ?>
-		<?php echo CHtml::activePasswordField($model,'password', array('class'=>'form-control')) ?>
-	</div>
-	
-	<div class="row">
-		<p class="hint">
-		<?php echo CHtml::link(UserModule::t("Register"),Yii::app()->getModule('user')->registrationUrl); ?> | <?php echo CHtml::link(UserModule::t("Lost Password?"),Yii::app()->getModule('user')->recoveryUrl); ?>
-		</p>
-	</div>
-	
-	<div class="row rememberMe">
-		<?php echo CHtml::activeCheckBox($model,'rememberMe'); ?>
-		<?php echo CHtml::activeLabelEx($model,'rememberMe'); ?>
-	</div>
-	<div class="form-group">
-		<div class="col-sm-12">
-			<?php echo CHtml::submitButton(UserModule::t("Login"), array('class'=>'btn btn-default')); ?>
-		</div>
-	</div>
-	
-<?php echo CHtml::endForm(); ?>
 </div><!-- form -->
 
 
