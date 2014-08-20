@@ -26,6 +26,7 @@ INSERT INTO `bill_types` (`id`, `name`) VALUES (2,'Syabas');
 INSERT INTO `bill_types` (`id`, `name`) VALUES (3,'Astro');
 INSERT INTO `bill_types` (`id`, `name`) VALUES (4,'Cukai Taksiran');
 INSERT INTO `bill_types` (`id`, `name`) VALUES (5,'Indah Water');
+INSERT INTO `bill_types` (`id`, `name`) VALUES (6,'House Maintenance');
 /*!40000 ALTER TABLE `bill_types` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -39,6 +40,7 @@ INSERT INTO `bills` (`id`, `property_id`, `bill_type_id`, `account_no`, `old_acc
 INSERT INTO `bills` (`id`, `property_id`, `bill_type_id`, `account_no`, `old_account_no`, `collateral`, `is_active`, `created`, `created_by`, `modified`, `modified_by`) VALUES (7,15,1,'01810010175702','',300.00,1,NULL,'sistem',NULL,'sistem');
 INSERT INTO `bills` (`id`, `property_id`, `bill_type_id`, `account_no`, `old_account_no`, `collateral`, `is_active`, `created`, `created_by`, `modified`, `modified_by`) VALUES (8,15,2,'4000209866011','',100.00,1,NULL,'sistem',NULL,'sistem');
 INSERT INTO `bills` (`id`, `property_id`, `bill_type_id`, `account_no`, `old_account_no`, `collateral`, `is_active`, `created`, `created_by`, `modified`, `modified_by`) VALUES (9,15,5,'56131428','',0.00,1,NULL,'sistem',NULL,'sistem');
+INSERT INTO `bills` (`id`, `property_id`, `bill_type_id`, `account_no`, `old_account_no`, `collateral`, `is_active`, `created`, `created_by`, `modified`, `modified_by`) VALUES (10,15,6,'000','',0.00,1,NULL,'sistem',NULL,'sistem');
 /*!40000 ALTER TABLE `bills` ENABLE KEYS */;
 UNLOCK TABLES;
 

@@ -141,12 +141,17 @@ class BillsController extends Controller
          */
         $property=Properties::model()->findByPk($id);
         
-		$dataProvider=new CActiveDataProvider('Bills',array(
-            'criteria'=>array(
-                'condition'=>'property_id=:id',
-                'params'=>array(':id'=>$id),
-            )
-        ));
+		// $dataProvider=new CActiveDataProvider('Bills',array(
+  //           'criteria'=>array(
+  //               'condition'=>'property_id=:id',
+  //               'params'=>array(':id'=>$id),
+  //           )
+  //       ));
+        $dataProvider=new Bills('search');
+        $dataProvider->unsetAttributes();
+        if (isset($_GET['Bills'])) {
+        	$dataProvider->attributes=$_GET['Bills'];
+        }
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
             'id'=>$id,
