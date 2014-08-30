@@ -61,7 +61,10 @@
 		<?php echo CHtml::encode($data->is_active); ?>
 		<br />
 	    <div style="float:right;">
-	        <?php echo CHtml::link('View more &raquo;', array('view', 'id'=>$data->id),array('class'=>'btn btn-xs btn-default')); ?>
+	    	<div class="btn-group">
+	        	<?php echo CHtml::link('<span class="glyphicon glyphicon-calendar"></span> Calendar', array('calendar', 'id'=>$data->id),array('class'=>'btn btn-xs btn-info')); ?>
+	        	<?php echo CHtml::link('View more &raquo;', array('view', 'id'=>$data->id),array('class'=>'btn btn-xs btn-default')); ?>
+	    	</div>
 	    </div>
 	    <div class="clearfix"></div>
 	</div>

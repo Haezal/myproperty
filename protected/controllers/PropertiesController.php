@@ -32,7 +32,7 @@ class PropertiesController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'gallery', 'delete'),
+				'actions'=>array('create','update', 'gallery', 'delete', 'calendar'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -68,11 +68,22 @@ class PropertiesController extends Controller
                 $images[$v->id]['thumb'] = '<img src="' . Yii::app()->createUrl("site/showImage", array("id" => $v->id,'height'=>600,'width'=>800)).'" />';
             }
         }
+        // END gallery
+
+        // get Bills
+        $bills=new Bills('search');
+        $bills->unsetAttributes();
+        if (isset($_GET['Bills'])) {
+        	$bills->attributes=$_GET['Bills'];
+        }
+        $bills->property_id = $id;
+        // END bills
 
 		$this->render('view',array(
 			'model'=>$model,
 			'gallery'=>$gallery,
 			'images'=>$images,
+			'bills'=>$bills,
 		));
 	}
 
@@ -209,6 +220,24 @@ class PropertiesController extends Controller
         }
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
+		));
+	}
+
+	/**
+	 * View all bill mailing 
+	 *
+	 * @return void
+	 * @author haezal musa
+	 **/
+	public function actionCalendar()
+	{
+		$currentYear=date('Y');
+		$monthList=CHtml::listData('Month');
+
+
+		$this->render('calendar', array(
+			'currentYear'=>$currentYear,
+			'monthList'=>$monthList,
 		));
 	}
 
