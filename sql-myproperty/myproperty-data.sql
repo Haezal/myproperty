@@ -40,8 +40,8 @@ INSERT INTO `bills` (`id`, `property_id`, `bill_type_id`, `account_no`, `old_acc
 INSERT INTO `bills` (`id`, `property_id`, `bill_type_id`, `account_no`, `old_account_no`, `collateral`, `is_active`, `created`, `created_by`, `modified`, `modified_by`) VALUES (7,15,1,'01810010175702','',300.00,1,NULL,'sistem',NULL,'sistem');
 INSERT INTO `bills` (`id`, `property_id`, `bill_type_id`, `account_no`, `old_account_no`, `collateral`, `is_active`, `created`, `created_by`, `modified`, `modified_by`) VALUES (8,15,2,'4000209866011','',100.00,1,NULL,'sistem',NULL,'sistem');
 INSERT INTO `bills` (`id`, `property_id`, `bill_type_id`, `account_no`, `old_account_no`, `collateral`, `is_active`, `created`, `created_by`, `modified`, `modified_by`) VALUES (9,15,5,'56131428','',0.00,1,NULL,'sistem',NULL,'sistem');
-INSERT INTO `bills` (`id`, `property_id`, `bill_type_id`, `account_no`, `old_account_no`, `collateral`, `is_active`, `created`, `created_by`, `modified`, `modified_by`) VALUES (10,15,6,'000','',0.00,1,NULL,'sistem',NULL,'sistem');
-INSERT INTO `bills` (`id`, `property_id`, `bill_type_id`, `account_no`, `old_account_no`, `collateral`, `is_active`, `created`, `created_by`, `modified`, `modified_by`) VALUES (11,16,6,'00','',0.00,1,NULL,'sistem',NULL,'sistem');
+INSERT INTO `bills` (`id`, `property_id`, `bill_type_id`, `account_no`, `old_account_no`, `collateral`, `is_active`, `created`, `created_by`, `modified`, `modified_by`) VALUES (10,15,6,'-','',0.00,1,NULL,'sistem',NULL,'sistem');
+INSERT INTO `bills` (`id`, `property_id`, `bill_type_id`, `account_no`, `old_account_no`, `collateral`, `is_active`, `created`, `created_by`, `modified`, `modified_by`) VALUES (11,16,6,'-','',0.00,1,NULL,'sistem',NULL,'sistem');
 INSERT INTO `bills` (`id`, `property_id`, `bill_type_id`, `account_no`, `old_account_no`, `collateral`, `is_active`, `created`, `created_by`, `modified`, `modified_by`) VALUES (12,16,4,'T00580010002200','',0.00,1,NULL,'sistem',NULL,'sistem');
 INSERT INTO `bills` (`id`, `property_id`, `bill_type_id`, `account_no`, `old_account_no`, `collateral`, `is_active`, `created`, `created_by`, `modified`, `modified_by`) VALUES (13,16,5,'59024133','',0.00,1,NULL,'sistem',NULL,'sistem');
 /*!40000 ALTER TABLE `bills` ENABLE KEYS */;
@@ -77,6 +77,15 @@ INSERT INTO `gallery_photo` (`id`, `gallery_id`, `rank`, `name`, `description`, 
 INSERT INTO `gallery_photo` (`id`, `gallery_id`, `rank`, `name`, `description`, `file_name`, `link`, `preview`) VALUES (23,4,23,'','','fc47f33851303_1_V550.jpg',NULL,NULL);
 INSERT INTO `gallery_photo` (`id`, `gallery_id`, `rank`, `name`, `description`, `file_name`, `link`, `preview`) VALUES (24,5,24,'','Dari Depan','97050727b2e347969eb1d85d154fe34c.jpg',NULL,NULL);
 /*!40000 ALTER TABLE `gallery_photo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `jqcalendar`
+--
+
+LOCK TABLES `jqcalendar` WRITE;
+/*!40000 ALTER TABLE `jqcalendar` DISABLE KEYS */;
+/*!40000 ALTER TABLE `jqcalendar` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -255,7 +264,7 @@ UNLOCK TABLES;
 LOCK TABLES `tbl_users` WRITE;
 /*!40000 ALTER TABLE `tbl_users` DISABLE KEYS */;
 INSERT INTO `tbl_users` (`id`, `username`, `password`, `email`, `activkey`, `superuser`, `status`, `create_at`, `lastvisit_at`) VALUES (1,'admin','5f4dcc3b5aa765d61d8327deb882cf99','admin@myproperty.com','27921dfba42c627fb39e858cdb31c1ff',1,1,'2014-08-09 17:51:22','2014-08-14 20:56:58');
-INSERT INTO `tbl_users` (`id`, `username`, `password`, `email`, `activkey`, `superuser`, `status`, `create_at`, `lastvisit_at`) VALUES (2,'haezal','5716f55419a25cef848511791a483b21','ezalepy@gmail.com','98751617ce1f2877a182a18ea19ad276',0,1,'2014-08-12 09:36:04','2014-08-20 13:04:51');
+INSERT INTO `tbl_users` (`id`, `username`, `password`, `email`, `activkey`, `superuser`, `status`, `create_at`, `lastvisit_at`) VALUES (2,'haezal','5716f55419a25cef848511791a483b21','ezalepy@gmail.com','98751617ce1f2877a182a18ea19ad276',0,1,'2014-08-12 09:36:04','2014-09-01 08:07:58');
 /*!40000 ALTER TABLE `tbl_users` ENABLE KEYS */;
 UNLOCK TABLES;
 

@@ -27,9 +27,18 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
-		// renders the view file 'protected/views/site/index.php'
-		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
+		$properties=array();
+		if (!Yii::app()->user->isGuest) {
+			// get property list
+			$properties=new CActiveDataProvider('Properties', array(
+                'criteria'=>array(
+                    'condition'=>'user_id=:user_id',
+                    'params'=>array(':user_id'=>Yii::app()->user->id),
+                ),
+            ));
+		}
+
+		$this->render('index', array('properties'=>$properties));
 	}
 
 	/**

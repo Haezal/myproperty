@@ -14,6 +14,6 @@ $this->menu=array(
 
 <h1><span class="glyphicon glyphicon-calender"></span> Calendar View</h1>
 
-<h3>
-	Current Year : <?php echo $currentYear; ?> <span class="glyphicon glyphicon-pencil"></span> Kemaskini
-</h3>
+<?php  
+$this->widget('ext.calendar-advance.AdvanceCalendarWidget',array('month'=>$month, 'year'=>$year, 'events'=>$events));
+?>

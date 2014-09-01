@@ -207,17 +207,12 @@ class PropertiesController extends Controller
 	 */
 	public function actionIndex()
 	{
-        if(Yii::app()->user->isAdmin()){
-            $dataProvider=new CActiveDataProvider('Properties');
-        }
-        else{
-            $dataProvider=new CActiveDataProvider('Properties', array(
-                'criteria'=>array(
-                    'condition'=>'user_id=:user_id',
-                    'params'=>array(':user_id'=>Yii::app()->user->id),
-                ),
-            ));
-        }
+		$dataProvider=new CActiveDataProvider('Properties', array(
+			'criteria'=>array(
+				'condition'=>'user_id=:id', 
+				'params'=>array(':id'=>Yii::app()->user->id)
+			),
+		));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -231,14 +226,7 @@ class PropertiesController extends Controller
 	 **/
 	public function actionCalendar()
 	{
-		$currentYear=date('Y');
-		$monthList=CHtml::listData('Month');
-
-
-		$this->render('calendar', array(
-			'currentYear'=>$currentYear,
-			'monthList'=>$monthList,
-		));
+		$this->render('calendar');
 	}
 
 	/**
@@ -254,6 +242,31 @@ class PropertiesController extends Controller
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+	}
+
+	// Show calendar Events
+	public function actionCalendarEvents()
+	{
+	    $items[]=array(
+	        'title'=>'Meeting',
+	        'start'=>'2012-11-23',
+	        'color'=>'#CC0000',
+	        'allDay'=>true,
+	        'url'=>'http://anyurl.com'
+	    );
+	    $items[]=array(
+	        'title'=>'Meeting reminder',
+	        'start'=>'2012-11-19',
+	        'end'=>'2012-11-22',
+	 
+	        // can pass unix timestamp too
+	        // 'start'=>time()
+	 
+	        'color'=>'blue',
+	    );
+	 
+	    echo CJSON::encode($items);
+	    Yii::app()->end();
 	}
 
 	/**

@@ -95,6 +95,27 @@ CREATE TABLE `gallery_photo` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `jqcalendar`
+--
+
+DROP TABLE IF EXISTS `jqcalendar`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `jqcalendar` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Subject` varchar(1000) DEFAULT NULL,
+  `Location` varchar(200) DEFAULT NULL,
+  `Description` varchar(255) DEFAULT NULL,
+  `StartTime` datetime DEFAULT NULL,
+  `EndTime` datetime DEFAULT NULL,
+  `IsAllDayEvent` smallint(6) NOT NULL,
+  `Color` varchar(200) DEFAULT NULL,
+  `RecurringRule` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `months`
 --
 
@@ -431,4 +452,4 @@ CREATE TABLE `tenancy_statuses` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-08-20 21:58:10
+-- Dump completed on 2014-09-01 18:32:14

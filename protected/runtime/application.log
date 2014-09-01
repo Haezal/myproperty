@@ -2814,3 +2814,605 @@ Stack trace:
 REQUEST_URI=/myproperty/properties/calendar/15
 in /var/www/html/myproperty/protected/controllers/PropertiesController.php (235)
 in /var/www/html/myproperty/index.php (13)
+2014/09/01 16:09:16 [error] [exception.CException] exception 'CException' with message 'WebUser and its behaviors do not have a method or closure named "isGuest".' in /var/www/html/yii-read-only/framework/base/CComponent.php:266
+Stack trace:
+#0 /var/www/html/myproperty/protected/controllers/SiteController.php(30): CComponent->__call('isGuest', Array)
+#1 /var/www/html/myproperty/protected/controllers/SiteController.php(30): WebUser->isGuest()
+#2 /var/www/html/yii-read-only/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#3 /var/www/html/yii-read-only/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/html/yii-read-only/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/yii-read-only/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): CController->run('')
+#7 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#8 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#9 /var/www/html/myproperty/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/myproperty/
+HTTP_REFERER=http://localhost/myproperty/user/login
+---
+2014/09/01 16:11:56 [error] [exception.CException] exception 'CException' with message 'Property "WebUser.profile" is not defined.' in /var/www/html/yii-read-only/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/html/yii-read-only/framework/web/auth/CWebUser.php(146): CComponent->__get('profile')
+#1 /var/www/html/myproperty/protected/views/site/index.php(10): CWebUser->__get('profile')
+#2 /var/www/html/yii-read-only/framework/web/CBaseController.php(126): require('/var/www/html/m...')
+#3 /var/www/html/yii-read-only/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/m...', Array, true)
+#4 /var/www/html/yii-read-only/framework/web/CController.php(869): CBaseController->renderFile('/var/www/html/m...', Array, true)
+#5 /var/www/html/yii-read-only/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#6 /var/www/html/myproperty/protected/controllers/SiteController.php(41): CController->render('index', Array)
+#7 /var/www/html/yii-read-only/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#8 /var/www/html/yii-read-only/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /var/www/html/yii-read-only/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#10 /var/www/html/yii-read-only/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): CController->run('')
+#12 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#13 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#14 /var/www/html/myproperty/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/myproperty/
+HTTP_REFERER=http://localhost/myproperty/user/login
+---
+2014/09/01 16:12:00 [error] [exception.CException] exception 'CException' with message 'Property "WebUser.profiles" is not defined.' in /var/www/html/yii-read-only/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/html/yii-read-only/framework/web/auth/CWebUser.php(146): CComponent->__get('profiles')
+#1 /var/www/html/myproperty/protected/views/site/index.php(10): CWebUser->__get('profiles')
+#2 /var/www/html/yii-read-only/framework/web/CBaseController.php(126): require('/var/www/html/m...')
+#3 /var/www/html/yii-read-only/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/m...', Array, true)
+#4 /var/www/html/yii-read-only/framework/web/CController.php(869): CBaseController->renderFile('/var/www/html/m...', Array, true)
+#5 /var/www/html/yii-read-only/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#6 /var/www/html/myproperty/protected/controllers/SiteController.php(41): CController->render('index', Array)
+#7 /var/www/html/yii-read-only/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#8 /var/www/html/yii-read-only/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /var/www/html/yii-read-only/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#10 /var/www/html/yii-read-only/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): CController->run('')
+#12 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#13 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#14 /var/www/html/myproperty/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/myproperty/
+HTTP_REFERER=http://localhost/myproperty/user/login
+---
+2014/09/01 16:12:03 [error] [exception.CException] exception 'CException' with message 'Property "WebUser.profile" is not defined.' in /var/www/html/yii-read-only/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/html/yii-read-only/framework/web/auth/CWebUser.php(146): CComponent->__get('profile')
+#1 /var/www/html/myproperty/protected/views/site/index.php(10): CWebUser->__get('profile')
+#2 /var/www/html/yii-read-only/framework/web/CBaseController.php(126): require('/var/www/html/m...')
+#3 /var/www/html/yii-read-only/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/m...', Array, true)
+#4 /var/www/html/yii-read-only/framework/web/CController.php(869): CBaseController->renderFile('/var/www/html/m...', Array, true)
+#5 /var/www/html/yii-read-only/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#6 /var/www/html/myproperty/protected/controllers/SiteController.php(41): CController->render('index', Array)
+#7 /var/www/html/yii-read-only/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#8 /var/www/html/yii-read-only/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /var/www/html/yii-read-only/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#10 /var/www/html/yii-read-only/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): CController->run('')
+#12 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#13 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#14 /var/www/html/myproperty/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/myproperty/
+HTTP_REFERER=http://localhost/myproperty/user/login
+---
+2014/09/01 16:24:14 [error] [exception.CException] exception 'CException' with message 'Properties and its behaviors do not have a method or closure named "run".' in /var/www/html/yii-read-only/framework/base/CComponent.php:266
+Stack trace:
+#0 /var/www/html/yii-read-only/framework/db/ar/CActiveRecord.php(227): CComponent->__call('run', Array)
+#1 /var/www/html/yii-read-only/framework/web/CBaseController.php(181): CActiveRecord->__call('run', Array)
+#2 /var/www/html/yii-read-only/framework/web/CBaseController.php(181): Properties->run()
+#3 /var/www/html/myproperty/protected/views/site/index.php(16): CBaseController->widget('application.com...')
+#4 /var/www/html/yii-read-only/framework/web/CBaseController.php(126): require('/var/www/html/m...')
+#5 /var/www/html/yii-read-only/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/m...', Array, true)
+#6 /var/www/html/yii-read-only/framework/web/CController.php(869): CBaseController->renderFile('/var/www/html/m...', Array, true)
+#7 /var/www/html/yii-read-only/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#8 /var/www/html/myproperty/protected/controllers/SiteController.php(41): CController->render('index', Array)
+#9 /var/www/html/yii-read-only/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#10 /var/www/html/yii-read-only/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/html/yii-read-only/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#12 /var/www/html/yii-read-only/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): CController->run('')
+#14 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#15 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#16 /var/www/html/myproperty/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/myproperty/
+HTTP_REFERER=http://localhost/myproperty/user/login
+---
+2014/09/01 16:24:54 [error] [exception.CException] exception 'CException' with message 'Properties and its behaviors do not have a method or closure named "run".' in /var/www/html/yii-read-only/framework/base/CComponent.php:266
+Stack trace:
+#0 /var/www/html/yii-read-only/framework/db/ar/CActiveRecord.php(227): CComponent->__call('run', Array)
+#1 /var/www/html/yii-read-only/framework/web/CBaseController.php(181): CActiveRecord->__call('run', Array)
+#2 /var/www/html/yii-read-only/framework/web/CBaseController.php(181): Properties->run()
+#3 /var/www/html/myproperty/protected/views/site/index.php(16): CBaseController->widget('application.com...')
+#4 /var/www/html/yii-read-only/framework/web/CBaseController.php(126): require('/var/www/html/m...')
+#5 /var/www/html/yii-read-only/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/m...', Array, true)
+#6 /var/www/html/yii-read-only/framework/web/CController.php(869): CBaseController->renderFile('/var/www/html/m...', Array, true)
+#7 /var/www/html/yii-read-only/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#8 /var/www/html/myproperty/protected/controllers/SiteController.php(41): CController->render('index', Array)
+#9 /var/www/html/yii-read-only/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#10 /var/www/html/yii-read-only/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/html/yii-read-only/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#12 /var/www/html/yii-read-only/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): CController->run('')
+#14 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#15 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#16 /var/www/html/myproperty/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/myproperty/
+HTTP_REFERER=http://localhost/myproperty/user/login
+---
+2014/09/01 16:25:58 [error] [exception.CException] exception 'CException' with message 'Properties and its behaviors do not have a method or closure named "run".' in /var/www/html/yii-read-only/framework/base/CComponent.php:266
+Stack trace:
+#0 /var/www/html/yii-read-only/framework/db/ar/CActiveRecord.php(227): CComponent->__call('run', Array)
+#1 /var/www/html/yii-read-only/framework/web/CBaseController.php(181): CActiveRecord->__call('run', Array)
+#2 /var/www/html/yii-read-only/framework/web/CBaseController.php(181): Properties->run()
+#3 /var/www/html/myproperty/protected/views/site/index.php(18): CBaseController->widget('application.com...')
+#4 /var/www/html/yii-read-only/framework/web/CBaseController.php(126): require('/var/www/html/m...')
+#5 /var/www/html/yii-read-only/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/m...', Array, true)
+#6 /var/www/html/yii-read-only/framework/web/CController.php(869): CBaseController->renderFile('/var/www/html/m...', Array, true)
+#7 /var/www/html/yii-read-only/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#8 /var/www/html/myproperty/protected/controllers/SiteController.php(41): CController->render('index', Array)
+#9 /var/www/html/yii-read-only/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#10 /var/www/html/yii-read-only/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/html/yii-read-only/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#12 /var/www/html/yii-read-only/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): CController->run('')
+#14 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#15 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#16 /var/www/html/myproperty/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/myproperty/
+HTTP_REFERER=http://localhost/myproperty/user/login
+---
+2014/09/01 16:26:06 [error] [exception.CException] exception 'CException' with message 'Properties and its behaviors do not have a method or closure named "run".' in /var/www/html/yii-read-only/framework/base/CComponent.php:266
+Stack trace:
+#0 /var/www/html/yii-read-only/framework/db/ar/CActiveRecord.php(227): CComponent->__call('run', Array)
+#1 /var/www/html/yii-read-only/framework/web/CBaseController.php(181): CActiveRecord->__call('run', Array)
+#2 /var/www/html/yii-read-only/framework/web/CBaseController.php(181): Properties->run()
+#3 /var/www/html/myproperty/protected/views/site/index.php(18): CBaseController->widget('application.com...')
+#4 /var/www/html/yii-read-only/framework/web/CBaseController.php(126): require('/var/www/html/m...')
+#5 /var/www/html/yii-read-only/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/m...', Array, true)
+#6 /var/www/html/yii-read-only/framework/web/CController.php(869): CBaseController->renderFile('/var/www/html/m...', Array, true)
+#7 /var/www/html/yii-read-only/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#8 /var/www/html/myproperty/protected/controllers/SiteController.php(41): CController->render('index', Array)
+#9 /var/www/html/yii-read-only/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#10 /var/www/html/yii-read-only/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/html/yii-read-only/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#12 /var/www/html/yii-read-only/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): CController->run('')
+#14 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#15 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#16 /var/www/html/myproperty/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/myproperty/
+HTTP_REFERER=http://localhost/myproperty/user/login
+---
+2014/09/01 16:26:06 [error] [exception.CException] exception 'CException' with message 'Properties and its behaviors do not have a method or closure named "run".' in /var/www/html/yii-read-only/framework/base/CComponent.php:266
+Stack trace:
+#0 /var/www/html/yii-read-only/framework/db/ar/CActiveRecord.php(227): CComponent->__call('run', Array)
+#1 /var/www/html/yii-read-only/framework/web/CBaseController.php(181): CActiveRecord->__call('run', Array)
+#2 /var/www/html/yii-read-only/framework/web/CBaseController.php(181): Properties->run()
+#3 /var/www/html/myproperty/protected/views/site/index.php(18): CBaseController->widget('application.com...')
+#4 /var/www/html/yii-read-only/framework/web/CBaseController.php(126): require('/var/www/html/m...')
+#5 /var/www/html/yii-read-only/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/m...', Array, true)
+#6 /var/www/html/yii-read-only/framework/web/CController.php(869): CBaseController->renderFile('/var/www/html/m...', Array, true)
+#7 /var/www/html/yii-read-only/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#8 /var/www/html/myproperty/protected/controllers/SiteController.php(41): CController->render('index', Array)
+#9 /var/www/html/yii-read-only/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#10 /var/www/html/yii-read-only/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/html/yii-read-only/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#12 /var/www/html/yii-read-only/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): CController->run('')
+#14 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#15 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#16 /var/www/html/myproperty/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/myproperty/
+HTTP_REFERER=http://localhost/myproperty/user/login
+---
+2014/09/01 16:26:07 [error] [exception.CException] exception 'CException' with message 'Properties and its behaviors do not have a method or closure named "run".' in /var/www/html/yii-read-only/framework/base/CComponent.php:266
+Stack trace:
+#0 /var/www/html/yii-read-only/framework/db/ar/CActiveRecord.php(227): CComponent->__call('run', Array)
+#1 /var/www/html/yii-read-only/framework/web/CBaseController.php(181): CActiveRecord->__call('run', Array)
+#2 /var/www/html/yii-read-only/framework/web/CBaseController.php(181): Properties->run()
+#3 /var/www/html/myproperty/protected/views/site/index.php(18): CBaseController->widget('application.com...')
+#4 /var/www/html/yii-read-only/framework/web/CBaseController.php(126): require('/var/www/html/m...')
+#5 /var/www/html/yii-read-only/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/m...', Array, true)
+#6 /var/www/html/yii-read-only/framework/web/CController.php(869): CBaseController->renderFile('/var/www/html/m...', Array, true)
+#7 /var/www/html/yii-read-only/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#8 /var/www/html/myproperty/protected/controllers/SiteController.php(41): CController->render('index', Array)
+#9 /var/www/html/yii-read-only/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#10 /var/www/html/yii-read-only/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/html/yii-read-only/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#12 /var/www/html/yii-read-only/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): CController->run('')
+#14 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#15 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#16 /var/www/html/myproperty/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/myproperty/
+HTTP_REFERER=http://localhost/myproperty/user/login
+---
+2014/09/01 16:26:07 [error] [exception.CException] exception 'CException' with message 'Properties and its behaviors do not have a method or closure named "run".' in /var/www/html/yii-read-only/framework/base/CComponent.php:266
+Stack trace:
+#0 /var/www/html/yii-read-only/framework/db/ar/CActiveRecord.php(227): CComponent->__call('run', Array)
+#1 /var/www/html/yii-read-only/framework/web/CBaseController.php(181): CActiveRecord->__call('run', Array)
+#2 /var/www/html/yii-read-only/framework/web/CBaseController.php(181): Properties->run()
+#3 /var/www/html/myproperty/protected/views/site/index.php(18): CBaseController->widget('application.com...')
+#4 /var/www/html/yii-read-only/framework/web/CBaseController.php(126): require('/var/www/html/m...')
+#5 /var/www/html/yii-read-only/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/m...', Array, true)
+#6 /var/www/html/yii-read-only/framework/web/CController.php(869): CBaseController->renderFile('/var/www/html/m...', Array, true)
+#7 /var/www/html/yii-read-only/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#8 /var/www/html/myproperty/protected/controllers/SiteController.php(41): CController->render('index', Array)
+#9 /var/www/html/yii-read-only/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#10 /var/www/html/yii-read-only/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/html/yii-read-only/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#12 /var/www/html/yii-read-only/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): CController->run('')
+#14 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#15 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#16 /var/www/html/myproperty/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/myproperty/
+HTTP_REFERER=http://localhost/myproperty/user/login
+---
+2014/09/01 16:26:07 [error] [exception.CException] exception 'CException' with message 'Properties and its behaviors do not have a method or closure named "run".' in /var/www/html/yii-read-only/framework/base/CComponent.php:266
+Stack trace:
+#0 /var/www/html/yii-read-only/framework/db/ar/CActiveRecord.php(227): CComponent->__call('run', Array)
+#1 /var/www/html/yii-read-only/framework/web/CBaseController.php(181): CActiveRecord->__call('run', Array)
+#2 /var/www/html/yii-read-only/framework/web/CBaseController.php(181): Properties->run()
+#3 /var/www/html/myproperty/protected/views/site/index.php(18): CBaseController->widget('application.com...')
+#4 /var/www/html/yii-read-only/framework/web/CBaseController.php(126): require('/var/www/html/m...')
+#5 /var/www/html/yii-read-only/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/m...', Array, true)
+#6 /var/www/html/yii-read-only/framework/web/CController.php(869): CBaseController->renderFile('/var/www/html/m...', Array, true)
+#7 /var/www/html/yii-read-only/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#8 /var/www/html/myproperty/protected/controllers/SiteController.php(41): CController->render('index', Array)
+#9 /var/www/html/yii-read-only/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#10 /var/www/html/yii-read-only/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/html/yii-read-only/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#12 /var/www/html/yii-read-only/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): CController->run('')
+#14 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#15 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#16 /var/www/html/myproperty/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/myproperty/
+HTTP_REFERER=http://localhost/myproperty/user/login
+---
+2014/09/01 16:26:10 [error] [exception.CException] exception 'CException' with message 'Alias "application.components.PropertyWidgets" is invalid. Make sure it points to an existing PHP file and the file is readable.' in /var/www/html/yii-read-only/framework/YiiBase.php:323
+Stack trace:
+#0 /var/www/html/yii-read-only/framework/web/CWidgetFactory.php(146): YiiBase::import('application.com...', true)
+#1 /var/www/html/yii-read-only/framework/web/CBaseController.php(146): CWidgetFactory->createWidget(Object(SiteController), 'application.com...', Array)
+#2 /var/www/html/yii-read-only/framework/web/CBaseController.php(180): CBaseController->createWidget('application.com...', Array)
+#3 /var/www/html/myproperty/protected/views/site/index.php(18): CBaseController->widget('application.com...')
+#4 /var/www/html/yii-read-only/framework/web/CBaseController.php(126): require('/var/www/html/m...')
+#5 /var/www/html/yii-read-only/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/m...', Array, true)
+#6 /var/www/html/yii-read-only/framework/web/CController.php(869): CBaseController->renderFile('/var/www/html/m...', Array, true)
+#7 /var/www/html/yii-read-only/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#8 /var/www/html/myproperty/protected/controllers/SiteController.php(41): CController->render('index', Array)
+#9 /var/www/html/yii-read-only/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#10 /var/www/html/yii-read-only/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/html/yii-read-only/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#12 /var/www/html/yii-read-only/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): CController->run('')
+#14 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#15 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#16 /var/www/html/myproperty/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/myproperty/
+HTTP_REFERER=http://localhost/myproperty/user/login
+---
+2014/09/01 16:26:48 [error] [exception.CException] exception 'CException' with message 'Alias "application.components.PropertyWidgets" is invalid. Make sure it points to an existing PHP file and the file is readable.' in /var/www/html/yii-read-only/framework/YiiBase.php:323
+Stack trace:
+#0 /var/www/html/yii-read-only/framework/web/CWidgetFactory.php(146): YiiBase::import('application.com...', true)
+#1 /var/www/html/yii-read-only/framework/web/CBaseController.php(146): CWidgetFactory->createWidget(Object(SiteController), 'application.com...', Array)
+#2 /var/www/html/yii-read-only/framework/web/CBaseController.php(180): CBaseController->createWidget('application.com...', Array)
+#3 /var/www/html/myproperty/protected/views/site/index.php(18): CBaseController->widget('application.com...')
+#4 /var/www/html/yii-read-only/framework/web/CBaseController.php(126): require('/var/www/html/m...')
+#5 /var/www/html/yii-read-only/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/m...', Array, true)
+#6 /var/www/html/yii-read-only/framework/web/CController.php(869): CBaseController->renderFile('/var/www/html/m...', Array, true)
+#7 /var/www/html/yii-read-only/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#8 /var/www/html/myproperty/protected/controllers/SiteController.php(41): CController->render('index', Array)
+#9 /var/www/html/yii-read-only/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#10 /var/www/html/yii-read-only/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/html/yii-read-only/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#12 /var/www/html/yii-read-only/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): CController->run('')
+#14 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#15 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#16 /var/www/html/myproperty/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/myproperty/
+HTTP_REFERER=http://localhost/myproperty/user/login
+---
+2014/09/01 16:28:34 [error] [exception.CException] exception 'CException' with message 'Properties and its behaviors do not have a method or closure named "run".' in /var/www/html/yii-read-only/framework/base/CComponent.php:266
+Stack trace:
+#0 /var/www/html/yii-read-only/framework/db/ar/CActiveRecord.php(227): CComponent->__call('run', Array)
+#1 /var/www/html/yii-read-only/framework/web/CBaseController.php(181): CActiveRecord->__call('run', Array)
+#2 /var/www/html/yii-read-only/framework/web/CBaseController.php(181): Properties->run()
+#3 /var/www/html/myproperty/protected/views/site/index.php(18): CBaseController->widget('application.com...')
+#4 /var/www/html/yii-read-only/framework/web/CBaseController.php(126): require('/var/www/html/m...')
+#5 /var/www/html/yii-read-only/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/m...', Array, true)
+#6 /var/www/html/yii-read-only/framework/web/CController.php(869): CBaseController->renderFile('/var/www/html/m...', Array, true)
+#7 /var/www/html/yii-read-only/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#8 /var/www/html/myproperty/protected/controllers/SiteController.php(41): CController->render('index', Array)
+#9 /var/www/html/yii-read-only/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#10 /var/www/html/yii-read-only/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/html/yii-read-only/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#12 /var/www/html/yii-read-only/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): CController->run('')
+#14 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#15 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#16 /var/www/html/myproperty/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/myproperty/
+HTTP_REFERER=http://localhost/myproperty/user/login
+---
+2014/09/01 16:28:35 [error] [exception.CException] exception 'CException' with message 'Properties and its behaviors do not have a method or closure named "run".' in /var/www/html/yii-read-only/framework/base/CComponent.php:266
+Stack trace:
+#0 /var/www/html/yii-read-only/framework/db/ar/CActiveRecord.php(227): CComponent->__call('run', Array)
+#1 /var/www/html/yii-read-only/framework/web/CBaseController.php(181): CActiveRecord->__call('run', Array)
+#2 /var/www/html/yii-read-only/framework/web/CBaseController.php(181): Properties->run()
+#3 /var/www/html/myproperty/protected/views/site/index.php(18): CBaseController->widget('application.com...')
+#4 /var/www/html/yii-read-only/framework/web/CBaseController.php(126): require('/var/www/html/m...')
+#5 /var/www/html/yii-read-only/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/m...', Array, true)
+#6 /var/www/html/yii-read-only/framework/web/CController.php(869): CBaseController->renderFile('/var/www/html/m...', Array, true)
+#7 /var/www/html/yii-read-only/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#8 /var/www/html/myproperty/protected/controllers/SiteController.php(41): CController->render('index', Array)
+#9 /var/www/html/yii-read-only/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#10 /var/www/html/yii-read-only/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/html/yii-read-only/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#12 /var/www/html/yii-read-only/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): CController->run('')
+#14 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#15 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#16 /var/www/html/myproperty/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/myproperty/
+HTTP_REFERER=http://localhost/myproperty/user/login
+---
+2014/09/01 16:28:35 [error] [exception.CException] exception 'CException' with message 'Properties and its behaviors do not have a method or closure named "run".' in /var/www/html/yii-read-only/framework/base/CComponent.php:266
+Stack trace:
+#0 /var/www/html/yii-read-only/framework/db/ar/CActiveRecord.php(227): CComponent->__call('run', Array)
+#1 /var/www/html/yii-read-only/framework/web/CBaseController.php(181): CActiveRecord->__call('run', Array)
+#2 /var/www/html/yii-read-only/framework/web/CBaseController.php(181): Properties->run()
+#3 /var/www/html/myproperty/protected/views/site/index.php(18): CBaseController->widget('application.com...')
+#4 /var/www/html/yii-read-only/framework/web/CBaseController.php(126): require('/var/www/html/m...')
+#5 /var/www/html/yii-read-only/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/m...', Array, true)
+#6 /var/www/html/yii-read-only/framework/web/CController.php(869): CBaseController->renderFile('/var/www/html/m...', Array, true)
+#7 /var/www/html/yii-read-only/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#8 /var/www/html/myproperty/protected/controllers/SiteController.php(41): CController->render('index', Array)
+#9 /var/www/html/yii-read-only/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#10 /var/www/html/yii-read-only/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/html/yii-read-only/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#12 /var/www/html/yii-read-only/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): CController->run('')
+#14 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#15 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#16 /var/www/html/myproperty/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/myproperty/
+HTTP_REFERER=http://localhost/myproperty/user/login
+---
+2014/09/01 16:28:35 [error] [exception.CException] exception 'CException' with message 'Properties and its behaviors do not have a method or closure named "run".' in /var/www/html/yii-read-only/framework/base/CComponent.php:266
+Stack trace:
+#0 /var/www/html/yii-read-only/framework/db/ar/CActiveRecord.php(227): CComponent->__call('run', Array)
+#1 /var/www/html/yii-read-only/framework/web/CBaseController.php(181): CActiveRecord->__call('run', Array)
+#2 /var/www/html/yii-read-only/framework/web/CBaseController.php(181): Properties->run()
+#3 /var/www/html/myproperty/protected/views/site/index.php(18): CBaseController->widget('application.com...')
+#4 /var/www/html/yii-read-only/framework/web/CBaseController.php(126): require('/var/www/html/m...')
+#5 /var/www/html/yii-read-only/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/m...', Array, true)
+#6 /var/www/html/yii-read-only/framework/web/CController.php(869): CBaseController->renderFile('/var/www/html/m...', Array, true)
+#7 /var/www/html/yii-read-only/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#8 /var/www/html/myproperty/protected/controllers/SiteController.php(41): CController->render('index', Array)
+#9 /var/www/html/yii-read-only/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#10 /var/www/html/yii-read-only/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/html/yii-read-only/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#12 /var/www/html/yii-read-only/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): CController->run('')
+#14 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#15 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#16 /var/www/html/myproperty/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/myproperty/
+HTTP_REFERER=http://localhost/myproperty/user/login
+---
+2014/09/01 16:28:45 [error] [exception.CException] exception 'CException' with message 'Properties and its behaviors do not have a method or closure named "run".' in /var/www/html/yii-read-only/framework/base/CComponent.php:266
+Stack trace:
+#0 /var/www/html/yii-read-only/framework/db/ar/CActiveRecord.php(227): CComponent->__call('run', Array)
+#1 /var/www/html/yii-read-only/framework/web/CBaseController.php(181): CActiveRecord->__call('run', Array)
+#2 /var/www/html/yii-read-only/framework/web/CBaseController.php(181): Properties->run()
+#3 /var/www/html/myproperty/protected/views/site/index.php(18): CBaseController->widget('application.com...')
+#4 /var/www/html/yii-read-only/framework/web/CBaseController.php(126): require('/var/www/html/m...')
+#5 /var/www/html/yii-read-only/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/m...', Array, true)
+#6 /var/www/html/yii-read-only/framework/web/CController.php(869): CBaseController->renderFile('/var/www/html/m...', Array, true)
+#7 /var/www/html/yii-read-only/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#8 /var/www/html/myproperty/protected/controllers/SiteController.php(41): CController->render('index', Array)
+#9 /var/www/html/yii-read-only/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#10 /var/www/html/yii-read-only/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/html/yii-read-only/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#12 /var/www/html/yii-read-only/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): CController->run('')
+#14 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#15 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#16 /var/www/html/myproperty/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/myproperty/
+HTTP_REFERER=http://localhost/myproperty/user/login
+---
+2014/09/01 16:29:36 [error] [exception.CException] exception 'CException' with message 'Properties and its behaviors do not have a method or closure named "run".' in /var/www/html/yii-read-only/framework/base/CComponent.php:266
+Stack trace:
+#0 /var/www/html/yii-read-only/framework/db/ar/CActiveRecord.php(227): CComponent->__call('run', Array)
+#1 /var/www/html/yii-read-only/framework/web/CBaseController.php(181): CActiveRecord->__call('run', Array)
+#2 /var/www/html/yii-read-only/framework/web/CBaseController.php(181): Properties->run()
+#3 /var/www/html/myproperty/protected/views/site/index.php(18): CBaseController->widget('application.com...')
+#4 /var/www/html/yii-read-only/framework/web/CBaseController.php(126): require('/var/www/html/m...')
+#5 /var/www/html/yii-read-only/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/m...', Array, true)
+#6 /var/www/html/yii-read-only/framework/web/CController.php(869): CBaseController->renderFile('/var/www/html/m...', Array, true)
+#7 /var/www/html/yii-read-only/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#8 /var/www/html/myproperty/protected/controllers/SiteController.php(41): CController->render('index', Array)
+#9 /var/www/html/yii-read-only/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#10 /var/www/html/yii-read-only/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/html/yii-read-only/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#12 /var/www/html/yii-read-only/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): CController->run('')
+#14 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#15 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#16 /var/www/html/myproperty/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/myproperty/
+HTTP_REFERER=http://localhost/myproperty/user/login
+---
+2014/09/01 16:30:54 [error] [php] Undefined variable: dataProvider (/var/www/html/myproperty/protected/controllers/PropertiesController.php:211)
+Stack trace:
+#0 /var/www/html/yii-read-only/framework/web/filters/CFilterChain.php(133): PropertiesController->runAction()
+#1 /var/www/html/yii-read-only/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#2 /var/www/html/yii-read-only/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#3 /var/www/html/yii-read-only/framework/web/filters/CInlineFilter.php(58): PropertiesController->filterAccessControl()
+#4 /var/www/html/yii-read-only/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#5 /var/www/html/yii-read-only/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/html/yii-read-only/framework/web/CController.php(265): PropertiesController->runActionWithFilters()
+#7 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): PropertiesController->run()
+#8 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#10 /var/www/html/myproperty/index.php(13): CWebApplication->run()
+REQUEST_URI=/myproperty/properties
+in /var/www/html/myproperty/protected/controllers/PropertiesController.php (211)
+in /var/www/html/myproperty/index.php (13)
+2014/09/01 16:36:58 [error] [php] Missing argument 2 for CHtml::listData(), called in /var/www/html/myproperty/protected/controllers/PropertiesController.php on line 230 and defined (/var/www/html/yii-read-only/framework/web/helpers/CHtml.php:2270)
+Stack trace:
+#0 /var/www/html/yii-read-only/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /var/www/html/yii-read-only/framework/web/filters/CFilterChain.php(133): PropertiesController->runAction()
+#2 /var/www/html/yii-read-only/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /var/www/html/yii-read-only/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#4 /var/www/html/yii-read-only/framework/web/filters/CInlineFilter.php(58): PropertiesController->filterAccessControl()
+#5 /var/www/html/yii-read-only/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#6 /var/www/html/yii-read-only/framework/web/CController.php(291): CFilterChain->run()
+#7 /var/www/html/yii-read-only/framework/web/CController.php(265): PropertiesController->runActionWithFilters()
+#8 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): PropertiesController->run()
+#9 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#10 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#11 /var/www/html/myproperty/index.php(13): CWebApplication->run()
+REQUEST_URI=/myproperty/properties/calendar/15
+in /var/www/html/myproperty/protected/controllers/PropertiesController.php (230)
+in /var/www/html/myproperty/index.php (13)
+2014/09/01 16:39:15 [error] [php] Undefined variable: calendarEventsUrl (/var/www/html/myproperty/protected/views/properties/calendar.php:44)
+Stack trace:
+#0 /var/www/html/yii-read-only/framework/web/CController.php(869): PropertiesController->renderFile()
+#1 /var/www/html/yii-read-only/framework/web/CController.php(782): PropertiesController->renderPartial()
+#2 /var/www/html/myproperty/protected/controllers/PropertiesController.php(229): PropertiesController->render()
+#3 /var/www/html/yii-read-only/framework/web/actions/CInlineAction.php(49): PropertiesController->actionCalendar()
+#4 /var/www/html/yii-read-only/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /var/www/html/yii-read-only/framework/web/filters/CFilterChain.php(133): PropertiesController->runAction()
+#6 /var/www/html/yii-read-only/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /var/www/html/yii-read-only/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#8 /var/www/html/yii-read-only/framework/web/filters/CInlineFilter.php(58): PropertiesController->filterAccessControl()
+#9 /var/www/html/yii-read-only/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#10 /var/www/html/yii-read-only/framework/web/CController.php(291): CFilterChain->run()
+#11 /var/www/html/yii-read-only/framework/web/CController.php(265): PropertiesController->runActionWithFilters()
+#12 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): PropertiesController->run()
+#13 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#14 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#15 /var/www/html/myproperty/index.php(13): CWebApplication->run()
+REQUEST_URI=/myproperty/properties/calendar/15
+in /var/www/html/myproperty/protected/views/properties/calendar.php (44)
+in /var/www/html/myproperty/protected/controllers/PropertiesController.php (229)
+in /var/www/html/myproperty/index.php (13)
+2014/09/01 14:16:10 [error] [php] Undefined offset: 0 (/var/www/html/myproperty/protected/extensions/calendar-advance/AdvanceCalendarWidget.php:343)
+Stack trace:
+#0 /var/www/html/myproperty/protected/views/properties/calendar.php(18): PropertiesController->widget()
+#1 /var/www/html/yii-read-only/framework/web/CBaseController.php(126): require()
+#2 /var/www/html/yii-read-only/framework/web/CBaseController.php(95): PropertiesController->renderInternal()
+#3 /var/www/html/yii-read-only/framework/web/CController.php(869): PropertiesController->renderFile()
+#4 /var/www/html/yii-read-only/framework/web/CController.php(782): PropertiesController->renderPartial()
+#5 /var/www/html/myproperty/protected/controllers/PropertiesController.php(229): PropertiesController->render()
+#6 /var/www/html/yii-read-only/framework/web/actions/CInlineAction.php(49): PropertiesController->actionCalendar()
+#7 /var/www/html/yii-read-only/framework/web/CController.php(308): CInlineAction->runWithParams()
+#8 /var/www/html/yii-read-only/framework/web/filters/CFilterChain.php(133): PropertiesController->runAction()
+#9 /var/www/html/yii-read-only/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#10 /var/www/html/yii-read-only/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#11 /var/www/html/yii-read-only/framework/web/filters/CInlineFilter.php(58): PropertiesController->filterAccessControl()
+#12 /var/www/html/yii-read-only/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#13 /var/www/html/yii-read-only/framework/web/CController.php(291): CFilterChain->run()
+#14 /var/www/html/yii-read-only/framework/web/CController.php(265): PropertiesController->runActionWithFilters()
+#15 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): PropertiesController->run()
+#16 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#17 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#18 /var/www/html/myproperty/index.php(13): CWebApplication->run()
+REQUEST_URI=/myproperty/properties/calendar/15
+in /var/www/html/myproperty/protected/extensions/calendar-advance/AdvanceCalendarWidget.php (343)
+in /var/www/html/myproperty/protected/extensions/calendar-advance/AdvanceCalendarWidget.php (150)
+in /var/www/html/myproperty/protected/views/properties/calendar.php (18)
+2014/09/01 16:46:20 [error] [php] Undefined variable: month (/var/www/html/myproperty/protected/views/properties/calendar.php:18)
+Stack trace:
+#0 /var/www/html/yii-read-only/framework/web/CController.php(869): PropertiesController->renderFile()
+#1 /var/www/html/yii-read-only/framework/web/CController.php(782): PropertiesController->renderPartial()
+#2 /var/www/html/myproperty/protected/controllers/PropertiesController.php(229): PropertiesController->render()
+#3 /var/www/html/yii-read-only/framework/web/actions/CInlineAction.php(49): PropertiesController->actionCalendar()
+#4 /var/www/html/yii-read-only/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /var/www/html/yii-read-only/framework/web/filters/CFilterChain.php(133): PropertiesController->runAction()
+#6 /var/www/html/yii-read-only/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /var/www/html/yii-read-only/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#8 /var/www/html/yii-read-only/framework/web/filters/CInlineFilter.php(58): PropertiesController->filterAccessControl()
+#9 /var/www/html/yii-read-only/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#10 /var/www/html/yii-read-only/framework/web/CController.php(291): CFilterChain->run()
+#11 /var/www/html/yii-read-only/framework/web/CController.php(265): PropertiesController->runActionWithFilters()
+#12 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): PropertiesController->run()
+#13 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#14 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#15 /var/www/html/myproperty/index.php(13): CWebApplication->run()
+REQUEST_URI=/myproperty/properties/calendar/15
+in /var/www/html/myproperty/protected/views/properties/calendar.php (18)
+in /var/www/html/myproperty/protected/controllers/PropertiesController.php (229)
+in /var/www/html/myproperty/index.php (13)
+2014/09/01 18:24:12 [error] [php] Undefined variable: month (/var/www/html/myproperty/protected/views/properties/calendar.php:18)
+Stack trace:
+#0 /var/www/html/yii-read-only/framework/web/CController.php(869): PropertiesController->renderFile()
+#1 /var/www/html/yii-read-only/framework/web/CController.php(782): PropertiesController->renderPartial()
+#2 /var/www/html/myproperty/protected/controllers/PropertiesController.php(229): PropertiesController->render()
+#3 /var/www/html/yii-read-only/framework/web/actions/CInlineAction.php(49): PropertiesController->actionCalendar()
+#4 /var/www/html/yii-read-only/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /var/www/html/yii-read-only/framework/web/filters/CFilterChain.php(133): PropertiesController->runAction()
+#6 /var/www/html/yii-read-only/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /var/www/html/yii-read-only/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#8 /var/www/html/yii-read-only/framework/web/filters/CInlineFilter.php(58): PropertiesController->filterAccessControl()
+#9 /var/www/html/yii-read-only/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#10 /var/www/html/yii-read-only/framework/web/CController.php(291): CFilterChain->run()
+#11 /var/www/html/yii-read-only/framework/web/CController.php(265): PropertiesController->runActionWithFilters()
+#12 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): PropertiesController->run()
+#13 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#14 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#15 /var/www/html/myproperty/index.php(13): CWebApplication->run()
+REQUEST_URI=/myproperty/properties/calendar/15
+in /var/www/html/myproperty/protected/views/properties/calendar.php (18)
+in /var/www/html/myproperty/protected/controllers/PropertiesController.php (229)
+in /var/www/html/myproperty/index.php (13)
+2014/09/01 18:52:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/6f2fafca/css/images/default/shared/glass-bg.gif".' in /var/www/html/yii-read-only/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/6f2fafca...')
+#1 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/html/myproperty/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/myproperty/assets/6f2fafca/css/images/default/shared/glass-bg.gif
+HTTP_REFERER=http://localhost/myproperty/wdcalendar/default/edit?id=3&start=-480&end=-480&isallday=1&title=test&_=1409568758960
+---
+2014/09/01 18:54:07 [error] [php] Undefined variable: month (/var/www/html/myproperty/protected/views/properties/calendar.php:18)
+Stack trace:
+#0 /var/www/html/yii-read-only/framework/web/CController.php(869): PropertiesController->renderFile()
+#1 /var/www/html/yii-read-only/framework/web/CController.php(782): PropertiesController->renderPartial()
+#2 /var/www/html/myproperty/protected/controllers/PropertiesController.php(229): PropertiesController->render()
+#3 /var/www/html/yii-read-only/framework/web/actions/CInlineAction.php(49): PropertiesController->actionCalendar()
+#4 /var/www/html/yii-read-only/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /var/www/html/yii-read-only/framework/web/filters/CFilterChain.php(133): PropertiesController->runAction()
+#6 /var/www/html/yii-read-only/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /var/www/html/yii-read-only/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#8 /var/www/html/yii-read-only/framework/web/filters/CInlineFilter.php(58): PropertiesController->filterAccessControl()
+#9 /var/www/html/yii-read-only/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#10 /var/www/html/yii-read-only/framework/web/CController.php(291): CFilterChain->run()
+#11 /var/www/html/yii-read-only/framework/web/CController.php(265): PropertiesController->runActionWithFilters()
+#12 /var/www/html/yii-read-only/framework/web/CWebApplication.php(282): PropertiesController->run()
+#13 /var/www/html/yii-read-only/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#14 /var/www/html/yii-read-only/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#15 /var/www/html/myproperty/index.php(13): CWebApplication->run()
+REQUEST_URI=/myproperty/properties/calendar/15
+in /var/www/html/myproperty/protected/views/properties/calendar.php (18)
+in /var/www/html/myproperty/protected/controllers/PropertiesController.php (229)
+in /var/www/html/myproperty/index.php (13)

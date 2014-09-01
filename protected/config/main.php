@@ -23,6 +23,7 @@ return array(
 	),
 
 	'modules'=>array(
+		'wdcalendar'    => array( 'embed'=>true ),
 		// uncomment the following to enable the Gii tool		
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
